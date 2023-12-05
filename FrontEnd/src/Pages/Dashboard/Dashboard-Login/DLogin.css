@@ -4,20 +4,12 @@
   align-items: center;
   gap: 10rem;
   height: 100vh;
-  background-color: rgba(255, 243, 243, 0.874);
-}
-
-.leftside {
-  width: 50%;
-}
-
-.leftside img {
-  width: 100%;
+  background-color: white;
 }
 
 /* ********************************************************************** */
 
-.rightside {
+.center {
   padding: 2rem;
   align-items: center;
   text-align: center;
@@ -26,32 +18,20 @@
   background-color: white;
 }
 
-.Profileimg {
-  margin: auto;
-  width: 26%;
-  margin-top: 2rem;
-}
-
-.Profileimg img {
-  width: 5rem;
-  border-radius: 5rem;
-  /* border: 1px solid red; */
-}
-
 .radiobutton {
-  width: 33%;
+  width: 50%;
   font-size: 1.2rem;
   font-weight: bold;
 }
 
-.rightside > h1 {
+.center>h1 {
   margin: 2rem;
 }
 
-.rightside input {
+.center input {
   display: block;
   width: 100%;
-  background-color: rgba(250, 225, 225, 0.874);
+  background-color: rgba(192, 192, 192);
   height: 3rem;
   font-size: 1.2rem;
   margin: 10px 0px;
@@ -60,14 +40,14 @@
   padding: 10px;
 }
 
-.rightside button {
+.center button {
   width: 100%;
   height: 2.5rem;
   border-radius: 2rem;
   cursor: pointer;
   font-size: 1.3rem;
   font-weight: bolder;
-  background-color: rgba(244, 133, 133, 0.874);
+  background-color: rgba(255, 0, 0);
   border: none;
   margin-top: 1.5rem;
 }
@@ -81,10 +61,7 @@ form h3 {
     gap: 5rem;
   }
 
-  .leftside {
-    width: 45%;
-  }
-  .rightside {
+  .center {
     width: 40%;
   }
 }
@@ -94,22 +71,19 @@ form h3 {
     gap: 0rem;
   }
 
-  .leftside {
-    display: none;
-  }
-  .rightside {
+  .center {
     width: 60%;
   }
 }
 
 @media only screen and (max-width: 550px) {
-  .rightside {
+  .center {
     width: 80%;
   }
 }
 
 @media only screen and (max-width: 400px) {
-  .rightside {
+  .center {
     width: 95%;
   }
 }

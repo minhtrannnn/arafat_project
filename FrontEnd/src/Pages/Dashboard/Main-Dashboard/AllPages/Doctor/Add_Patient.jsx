@@ -65,7 +65,7 @@ const Add_Patient = () => {
     bloodGroup: "",
     DOB: "",
     password: "",
-    nurseID: data?.user._id,
+    doctorID: data?.user._id,
     docID: "",
     details: "",
   };
@@ -154,11 +154,11 @@ const Add_Patient = () => {
   //   </div>
   // );
 
-  if (data?.isAuthticated === false) {
+  if (data?.isAuthticated === true) {
     return <Navigate to={"/"} />;
   }
 
-  if (data?.user.userType !== "nurse") {
+  if (data?.user.userType !== "doctor") {
     return <Navigate to={"/dashboard"} />;
   }
 
@@ -170,7 +170,6 @@ const Add_Patient = () => {
         <div className="AfterSideBar">
           <div className="Main_Add_Doctor_div">
             <h1>Add Patient</h1>
-            <img src={doctor} alt="doctor" className="avatarimg" />
 
             <form onSubmit={HandleOnsubmitAppointment}>
               {/* Name PlaceHolder */}

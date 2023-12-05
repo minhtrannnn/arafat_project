@@ -29,7 +29,7 @@ const DLogin = () => {
 
   // ************************************************
   const [Loading, setLoading] = useState(false);
-  const [placement, SetPlacement] = useState("Nurse");
+  const [placement, SetPlacement] = useState("Staff");
   const [formvalue, setFormvalue] = useState({
     ID: "",
     password: "",
@@ -44,29 +44,7 @@ const DLogin = () => {
     e.preventDefault();
     setLoading(true);
     if (formvalue.ID !== "" && formvalue.password !== "") {
-      if (placement === "Nurse") {
-        let data = {
-          ...formvalue,
-          nurseID: formvalue.ID,
-        };
-        dispatch(NurseLogin(data)).then((res) => {
-          if (res.message === "Successful") {
-            notify("Login Successful");
-            setLoading(false);
-            return navigate("/dashboard");
-          }
-          if (res.message === "Wrong credentials") {
-            setLoading(false);
-
-            notify("Wrong credentials");
-          }
-          if (res.message === "Error") {
-            setLoading(false);
-
-            notify("Something went Wrong, Please Try Again");
-          }
-        });
-      } else if (placement === "Doctor") {
+      if (placement === "Staff") {
         let data = {
           ...formvalue,
           docID: formvalue.ID,
@@ -157,34 +135,25 @@ const DLogin = () => {
       <ToastContainer />
 
       <div className="mainLoginPage">
-        <div className="leftside">
-          <img src={banner} alt="banner" />
-        </div>
-        <div className="rightside">
-          <h1>Login</h1>
+        <div className="center">
+          <h1>Login Portal</h1>
           <div>
             <Radio.Group
               value={placement}
               onChange={placementChange}
               className={"radiogroup"}
             >
-              <Radio.Button value="Nurse" className={"radiobutton"}>
-                Nurse
-              </Radio.Button>
               <Radio.Button value="Doctor" className={"radiobutton"}>
-                Doctor
+                Staff
               </Radio.Button>
               <Radio.Button value="Admin" className={"radiobutton"}>
                 Admin
               </Radio.Button>
             </Radio.Group>
           </div>
-          <div className="Profileimg">
-            <img src={admin} alt="profile" />
-          </div>
           <div>
             <form onSubmit={HandleSubmit}>
-              <h3>{placement} ID</h3>
+              <h3>Username ID</h3>
               <input
                 type="number"
                 name="ID"
@@ -207,7 +176,7 @@ const DLogin = () => {
                   style={{ color: "blue", cursor: "pointer" }}
                   onClick={showDrawer}
                 >
-                  Get it on Email !
+                  Send it to your Email!
                 </span>
               </p>
 

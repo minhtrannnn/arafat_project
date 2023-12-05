@@ -147,13 +147,13 @@ router.post("/forgot", async (req, res) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "agrawaljoy1@gmail.com",
-      pass: "zxkyjqfuhiizmxrg",
+      user: "ancongminh123@gmail.com",
+      pass: "ancongminh1234",
     },
   });
 
   const mailOptions = {
-    from: "agrawaljoy1@gmail.com",
+    from: "ancongminh123@gmail.com",
     to: email,
     subject: "Account ID and Password",
     text: `This is your User Id : ${userId} and  Password : ${password} .`,

@@ -34,18 +34,18 @@ const Beds_Rooms = () => {
         <Sidebar />
         <div className="AfterSideBar">
           <div className="Payment_Page">
-            <h1 style={{ marginBottom: "2rem" }}>All Beds</h1>
+            <h1 style={{ marginBottom: "2rem" }}>Inventory Overview</h1>
             <div className="patientBox">
               <table>
                 <thead>
                   <tr>
-                    <th>Room</th>
-                    <th>Bed</th>
+                    <th>Items</th>
+                    <th>Quantity</th>
                     <th>Status</th>
-                    <th>Patient</th>
-                    <th>Disease</th>
-                    <th>Doctor</th>
-                    <th>Discharge</th>
+                    <th>Provider</th>
+                    <th>Expiration Date</th>
+                    <th>Location</th>
+                    <th>Price</th>
                   </tr>
                 </thead>
                 <tbody>
