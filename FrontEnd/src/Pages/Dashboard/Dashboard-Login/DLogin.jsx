@@ -85,7 +85,7 @@ const DLogin = () => {
 
             notify("Wrong credentials");
           }
-          if (res.message === "Error") {
+          else if(res.message === "Error") {
             setLoading(false);
 
             notify("Something went Wrong, Please Try Again");

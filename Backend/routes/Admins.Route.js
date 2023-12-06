@@ -39,6 +39,7 @@ router.post("/register", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   const { adminID, password } = req.body;
+  console.log(adminID)
   try {
     const admin = await AdminModel.findOne({ adminID, password });
     if (admin) {
