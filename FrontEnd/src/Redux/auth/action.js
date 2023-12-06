@@ -2,33 +2,6 @@ import * as types from "./types";
 import axios from "axios";
 
 //login user
-export const NurseLogin = (data) => async (dispatch) => {
-  try {
-    dispatch({ type: types.LOGIN_NURSE_REQUEST });
-    const res = await axios.post(
-      "https://zany-gray-clam-gear.cyclic.app/nurses/login",
-      data
-    );
-    dispatch({
-      type: types.LOGIN_NURSE_SUCCESS,
-      payload: {
-        message: res.data.message,
-        user: res.data.user,
-        token: res.data.token,
-      },
-    });
-    return res.data;
-  } catch (error) {
-    dispatch({
-      type: types.LOGIN_NURSE_ERROR,
-      payload: {
-        message: error,
-      },
-    });
-  }
-};
-
-//login user
 export const DoctorLogin = (data) => async (dispatch) => {
   try {
     dispatch({ type: types.LOGIN_DOCTOR_REQUEST });

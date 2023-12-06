@@ -41,7 +41,6 @@ router.post("/login", async (req, res) => {
   const { adminID, password } = req.body;
   try {
     const admin = await AdminModel.findOne({ adminID, password });
-
     if (admin) {
       const token = jwt.sign({ foo: "bar" }, process.env.key, {
         expiresIn: "24h",
