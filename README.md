@@ -19,7 +19,7 @@ Start the server
 This a demo hospital management website project by Minh An and Hieu Lam, where we can perform some of the basic function of a hospital management system like patient registration, user profile, inventory management, create report,...
 
 
-## Tech Stack
+## Used Technology
 
 **Client:** 
 
@@ -34,7 +34,6 @@ This a demo hospital management website project by Minh An and Hieu Lam, where w
 - **Mongo DB**
 - **Express Js**
 - **JWT**
-- **Nodemailer**
 
 ## Deployment
 
@@ -51,9 +50,8 @@ Password - minhan
 
 - Admin controls
 - Admitting Patients
-- Booking beds and ambulance
-- Creating appointments
 - Generating reports 
+- Inventory management
 - Overall control of hospital
 
 ## Team Members / Contributors

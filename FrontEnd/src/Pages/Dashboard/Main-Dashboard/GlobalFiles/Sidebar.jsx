@@ -85,11 +85,11 @@ const Sidebar = () => {
                   style={{ display: isOpen ? "block" : "none" }}
                   className="link_text"
                 >
-                  Add Doctor
+                  Add Staff
                 </div>
               </Link>
             ) : null}
-            {user?.userType === "admin" ? (
+            {/* {user?.userType === "admin" ? (
               <Link className="link" activeclassname="active" to={"/addnurse"}>
                 <div className="icon">
                   <GiNurseFemale className="mainIcon" />
@@ -101,7 +101,7 @@ const Sidebar = () => {
                   Add Nurse
                 </div>
               </Link>
-            ) : null}
+            ) : null} */}
             {user?.userType === "admin" ? (
               <Link className="link" activeclassname="active" to={"/admin"}>
                 <div className="icon">
@@ -248,18 +248,19 @@ const Sidebar = () => {
                 </div>
               </Link>
             ) : null} */}
-
-            <Link className="link" activeclassname="active" to={"/rooms"}>
-              <div className="icon">
-                <MdBedroomChild className="mainIcon" />
-              </div>
-              <div
-                style={{ display: isOpen ? "block" : "none" }}
-                className="link_text"
-              >
-                Inventory Management
-              </div>
-            </Link>
+            {user?.userType === "doctor" ? (
+              <Link className="link" activeclassname="active" to={"/rooms"}>
+                <div className="icon">
+                  <MdBedroomChild className="mainIcon" />
+                </div>
+                <div
+                  style={{ display: isOpen ? "block" : "none" }}
+                  className="link_text"
+                >
+                  Inventory Management
+                </div>
+              </Link>
+            ) : null}
 
             <Link
               className="LogOutPath link"

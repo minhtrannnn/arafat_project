@@ -389,11 +389,11 @@ const Add_Patient = () => {
               </div>
 
               <div>
-                <label>Medication</label>
+                <label>Details</label>
                 <div className="inputdiv">
                   <input
                     type="text"
-                    placeholder="Medication"
+                    placeholder="Details"
                     name="details"
                     value={AddPatient.details}
                     onChange={HandleAppointment}

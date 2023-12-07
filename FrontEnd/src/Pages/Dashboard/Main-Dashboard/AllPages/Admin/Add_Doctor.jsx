@@ -78,8 +78,7 @@ const AddDoctor = () => {
         <Sidebar />
         <div className="AfterSideBar">
           <div className="Main_Add_Doctor_div">
-            <h1>Add Doctors</h1>
-            <img src={doctor} alt="doctor" className="avatarimg" />
+            <h1>Add Staff</h1>
             <form onSubmit={HandleDoctorSubmit}>
               <div>
                 <label>Doctor Name</label>

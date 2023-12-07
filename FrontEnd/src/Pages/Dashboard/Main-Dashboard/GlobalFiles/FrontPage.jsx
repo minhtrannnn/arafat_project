@@ -42,16 +42,16 @@ const FrontPage = () => {
     <div className="container">
       <Sidebar />
       <div className="AfterSideBar">
-        <h1 style={{ color: "rgb(220,20,60)" }}>Overview</h1>
-        <div className="maindiv">
-          <div className="one commondiv">
+        <h1 style={{ color: "rgb(220,20,60)", fontSize: "50px" }}>MC Hospital</h1>
+        {/* <div className="maindiv"> */}
+          {/* <div className="one commondiv">
             <div>
               <h1>{data?.doctor}</h1>
               <p>Doctor</p>
             </div>
             <MdPersonAdd className="overviewIcon" />
-          </div>
-          <div className="two commondiv">
+          </div> */}
+          {/* <div className="two commondiv">
             {" "}
             <div>
               <h1>{data?.nurse}</h1>
@@ -65,23 +65,23 @@ const FrontPage = () => {
               <p>Patient</p>
             </div>
             <RiEmpathizeLine className="overviewIcon" />
-          </div>
-          <div className="six commondiv">
+          </div> */}
+          {/* <div className="six commondiv">
             {" "}
             <div>
               <h1>{data?.admin}</h1>
               <p>Admin</p>
             </div>
             <RiAdminLine className="overviewIcon" />
-          </div>
-          <div className="four commondiv">
+          </div> */}
+          {/* <div className="four commondiv">
             {" "}
             <div>
               <h1>{data?.bed}</h1>
               <p>Beds</p>
             </div>
             <FaBed className="overviewIcon" />
-          </div>
+          </div> */}
 
           {/* <div className="five commondiv">
             {" "}
@@ -99,18 +99,18 @@ const FrontPage = () => {
             </div>
             <BsFillBookmarkCheckFill className="overviewIcon" />
           </div> */}
-          <div className="six commondiv">
+          {/* <div className="six commondiv">
             {" "}
             <div>
               <h1>{data?.report}</h1>
               <p>Reports</p>
             </div>
             <MdPayment className="overviewIcon" />
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
         {/* ************************************* */}
         <div className="patientDetails">
-          <h1>Patient Details</h1>
+          <h1>Patient Dashboard</h1>
           <div className="patientBox">
             <Table columns={columns} dataSource={patients} />
           </div>

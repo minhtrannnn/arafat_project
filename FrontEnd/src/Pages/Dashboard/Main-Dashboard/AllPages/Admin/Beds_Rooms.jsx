@@ -24,6 +24,8 @@ const Beds_Rooms = () => {
     dispatch(GetBeds());
   }, [dispatch]);
 
+
+
   if (data?.isAuthticated === false) {
     return <Navigate to={"/"} />;
   }
@@ -57,13 +59,17 @@ const Beds_Rooms = () => {
                         <td
                           style={{
                             color:
-                              ele.occupied === "available" ? "green" : "orange",
+                              ele.status === "available" ? "green" : "red",
                             fontWeight: "bold",
                           }}
                         >
-                          {ele.occupied}
+                          {ele.status}
                         </td>
-                        <td>
+                        <td style={{ marginLeft: "1rem" }}>{ele.provider}</td>
+                        <td style={{ marginLeft: "1rem" }}>{ele.date}</td>
+                        <td style={{ marginLeft: "1rem" }}>{ele.location}</td>
+                        <td style={{ marginLeft: "1rem" }}>{ele.price}</td>
+                        {/* <td>
                           {ele.patientID
                             ? ele.patientID.patien1tName
                             : "No Data"}
@@ -94,7 +100,7 @@ const Beds_Rooms = () => {
                           >
                             Discharge
                           </button>
-                        </td>
+                        </td> */}
                       </tr>
                     );
                   })}
