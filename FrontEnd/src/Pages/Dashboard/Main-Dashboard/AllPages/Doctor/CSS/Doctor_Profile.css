@@ -25,10 +25,6 @@
   color: #ff6f6f;
 }
 
-.singleitemdiv:nth-child(odd) .singledivicons {
-  color: rgb(123 219 130);
-}
-
 .firstBox div {
   display: flex;
   padding: 1rem;
