@@ -209,22 +209,22 @@ const Doctor_Profile = () => {
               </div>
               {/* ***********  Third Div ******************** */}
               <div className="subSecondBox">
-                <h2 style={{ textAlign: "center", marginTop: "10px" }}>
+                <h2 style={{ textAlign: "center"}}>
                   Hospital Details
                 </h2>
+                <div style={{marginTop: "20px"}}></div>
                 <div className="singleitemdiv">
                   <BiTime className="singledivicons" />
-                  <p>09:00 AM - 20:00 PM (TIMING)</p>
+                  <p>Working Hours: 09:00 AM - 20:00 PM (EST)</p>
                 </div>
                 <div className="singleitemdiv">
                   <FaRegHospital className="singledivicons" />
-                  <p>Apollo hospitals</p>
+                  <p>MC Hospitals</p>
                 </div>
                 <div className="singleitemdiv">
                   <FaMapMarkedAlt className="singledivicons" />
                   <p>
-                    Sri Aurobindo Marg, Ansari Nagar, Ansari Nagar East, New
-                    Delhi.
+                    4513 Manhattan College, Parkway, Bronx, NY, 10471.
                   </p>
                 </div>
               </div>

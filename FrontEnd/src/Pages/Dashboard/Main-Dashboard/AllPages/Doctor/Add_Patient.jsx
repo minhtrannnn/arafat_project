@@ -264,37 +264,9 @@ const Add_Patient = () => {
                 <div className="inputdiv">
                   <input
                     type="number"
-                    placeholder="Number"
+                    placeholder="Phone Number"
                     name="mobile"
                     value={AddPatient.mobile}
-                    onChange={HandleAppointment}
-                    required
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label>Details</label>
-                <div className="inputdiv">
-                  <input
-                    type="text"
-                    placeholder="Details"
-                    name="details"
-                    value={AddPatient.details}
-                    onChange={HandleAppointment}
-                    required
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label>Disease</label>
-                <div className="inputdiv">
-                  <input
-                    type="text"
-                    placeholder="Disease"
-                    name="disease"
-                    value={AddPatient.disease}
                     onChange={HandleAppointment}
                     required
                   />
@@ -321,7 +293,7 @@ const Add_Patient = () => {
                 <div className="inputdiv">
                   <input
                     type="number"
-                    placeholder="bed No"
+                    placeholder="Bed No"
                     name="bedNumber"
                     value={bedDetails.bedNumber}
                     onChange={HandleBedchange}
@@ -334,7 +306,7 @@ const Add_Patient = () => {
                 <div className="inputdiv">
                   <input
                     type="number"
-                    placeholder="room no"
+                    placeholder="Room No"
                     name="roomNumber"
                     value={bedDetails.roomNumber}
                     onChange={HandleBedchange}
@@ -374,11 +346,8 @@ const Add_Patient = () => {
                     required
                   >
                     <option value="">Select doctor</option>
-                    <option value="63d228df1742e138a3727857">
-                      Piyush Agrawal
-                    </option>
-                    <option value="63d2270dfe66e89c9be342f9">
-                      Rajendra Patel
+                    <option value="63d3d42b03f51b5bd7d4e5cd">
+                      Minh An
                     </option>
                   </select>
                 </div>
@@ -404,6 +373,35 @@ const Add_Patient = () => {
                   </select>
                 </div>
               </div>
+
+              <div>
+                <label>Disease</label>
+                <div className="inputdiv">
+                  <input
+                    type="text"
+                    placeholder="Disease"
+                    name="disease"
+                    value={AddPatient.disease}
+                    onChange={HandleAppointment}
+                    required
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label>Medication</label>
+                <div className="inputdiv">
+                  <input
+                    type="text"
+                    placeholder="Medication"
+                    name="details"
+                    value={AddPatient.details}
+                    onChange={HandleAppointment}
+                    required
+                  />
+                </div>
+              </div>
+
               {/* PASSWORD*/}
               <div className="dateofAppointment">
                 <p>Password</p>
@@ -418,30 +416,6 @@ const Add_Patient = () => {
                   />
                 </div>
               </div>
-              {/* ADD IMAGES  */}
-              {/* <div>
-            <label>Image</label>
-            <div className="inputdiv">
-              <Upload
-                name="avatar"
-                listType="picture-card"
-                className="avatar-uploader"
-                showUploadList={false}
-                action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-                beforeUpload={beforeUpload}
-                onChange={handleChange}
-                style={{ display: "block" }}
-              >
-                {imageUrl ? (
-                  <img src={imageUrl} alt="avatar" style={{ width: "100%" }} />
-                ) : (
-                  uploadButton
-                )}
-              </Upload>
-            </div>
-          </div> */}
-              {/* SUBMIT BUTTON  */}
-
               <button
                 type="submit"
                 className="formsubmitbutton"

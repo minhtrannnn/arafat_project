@@ -36,7 +36,7 @@ const Sidebar = () => {
         <div style={{ width: isOpen ? "200px" : "70px" }} className={`sidebar`}>
           <div className="top_section">
             <h1 style={{ display: isOpen ? "block" : "none" }} className="logo">
-              HMS
+              MC Hospital Management System
             </h1>
             <div
               style={{ marginLeft: isOpen ? "50px" : "0px" }}
@@ -75,41 +75,7 @@ const Sidebar = () => {
                 </div>
               </Link>
             ) : null}
-            {/* {user?.userType === "nurse" ? (
-              <Link
-                className="link"
-                activeclassname="active"
-                to={"/addpatient"}
-              >
-                <div className="icon">
-                  <FaHospitalUser className="mainIcon" />
-                </div>
-                <div
-                  style={{ display: isOpen ? "block" : "none" }}
-                  className="link_text"
-                >
-                  Add Patient
-                </div>
-              </Link>
-            ) : null} */}
 
-            {user?.userType === "nurse" ? (
-              <Link
-                className="link"
-                activeclassname="active"
-                to={"/bookappointment"}
-              >
-                <div className="icon">
-                  <BsBookmarkPlus className="mainIcon" />
-                </div>
-                <div
-                  style={{ display: isOpen ? "block" : "none" }}
-                  className="link_text"
-                >
-                  Appointments
-                </div>
-              </Link>
-            ) : null}
             {user?.userType === "admin" ? (
               <Link className="link" activeclassname="active" to={"/addoctor"}>
                 <div className="icon">
@@ -167,7 +133,7 @@ const Sidebar = () => {
               </Link>
             ) : null}
 
-            {user?.userType === "admin" ? (
+            {/* {user?.userType === "admin" ? (
               <Link
                 className="link"
                 activeclassname="active"
@@ -183,7 +149,7 @@ const Sidebar = () => {
                   Add AMBU
                 </div>
               </Link>
-            ) : null}
+            ) : null} */}
             {/* {user?.userType === "admin" ? (
               <Link
                 className="link"
@@ -236,17 +202,6 @@ const Sidebar = () => {
                 </div>
               </Link>
             ) : null}
-            <Link className="link" activeclassname="active" to={"/rooms"}>
-              <div className="icon">
-                <MdBedroomChild className="mainIcon" />
-              </div>
-              <div
-                style={{ display: isOpen ? "block" : "none" }}
-                className="link_text"
-              >
-                Inventory Management
-              </div>
-            </Link>
             {user?.userType === "doctor" ? (
               <Link className="link" activeclassname="active" to={"/reports"}>
                 <div className="icon">
@@ -260,7 +215,7 @@ const Sidebar = () => {
                 </div>
               </Link>
             ) : null}
-            {user?.userType === "doctor" ? (
+            {/* {user?.userType === "doctor" ? (
               <Link
                 className="link"
                 activeclassname="active"
@@ -276,7 +231,7 @@ const Sidebar = () => {
                   Appointments
                 </div>
               </Link>
-            ) : null}
+            ) : null} */}
             {user?.userType === "doctor" ? (
               <Link
                 className="link"
@@ -311,6 +266,18 @@ const Sidebar = () => {
                 </div>
               </Link>
             ) : null} */}
+
+            <Link className="link" activeclassname="active" to={"/rooms"}>
+              <div className="icon">
+                <MdBedroomChild className="mainIcon" />
+              </div>
+              <div
+                style={{ display: isOpen ? "block" : "none" }}
+                className="link_text"
+              >
+                Inventory Management
+              </div>
+            </Link>
 
             <Link
               className="LogOutPath link"

@@ -88,7 +88,7 @@ main {
 }
 
 .logo {
-  font-size: 30px;
+  font-size: 15px;
 }
 .bars {
   display: flex;
@@ -175,7 +175,7 @@ main {
 
 .overviewIcon {
   font-size: 4rem;
-  color: rgb(184 191 234);
+  color: rgb(220,20,60);
 }
 
 /* ******************************************************** */

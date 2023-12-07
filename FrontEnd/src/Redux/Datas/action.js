@@ -6,7 +6,7 @@ export const CreateReport = (data) => async (dispatch) => {
   try {
     dispatch({ type: types.CREATE_REPORT_REQUEST });
     const res = await axios.post(
-      "https://sore-pear-squid-wig.cyclic.app.app/reports/create",
+      "https://sore-pear-squid-wig.cyclic.app/reports/create",
       data
     );
     console.log(res);
@@ -32,7 +32,7 @@ export const GetDoctorDetails = () => async (dispatch) => {
   try {
     dispatch({ type: types.GET_DOCTOR_REQUEST });
     const res = await axios.get(
-      "https://sore-pear-squid-wig.cyclic.app.app/doctors"
+      "https://sore-pear-squid-wig.cyclic.app/doctors"
     );
     console.log(res);
     // dispatch({
@@ -56,7 +56,7 @@ export const AddPatients = (data) => async (dispatch) => {
   try {
     dispatch({ type: types.ADD_PATIENT_REQUEST });
     const res = await axios.post(
-      "https://sore-pear-squid-wig.cyclic.app.app/patients/register",
+      "https://sore-pear-squid-wig.cyclic.app/patients/register",
       data
     );
     return res.data;
@@ -81,7 +81,7 @@ export const CreateBeds = (data) => async (dispatch) => {
   try {
     dispatch({ type: types.ADD_BED_REQUEST });
     const res = await axios.post(
-      "https://sore-pear-squid-wig.cyclic.app.app/beds/add",
+      "https://sore-pear-squid-wig.cyclic.app/beds/add",
       data
     );
     return res.data;
@@ -106,7 +106,7 @@ export const CreatePayment = (data) => async (dispatch) => {
   try {
     dispatch({ type: types.CREATE_PAYMENT_REQUEST });
     const res = await axios.post(
-      "https://sore-pear-squid-wig.cyclic.app.app/payments/add",
+      "https://sore-pear-squid-wig.cyclic.app/payments/add",
       data
     );
     console.log(res.data);
@@ -151,7 +151,7 @@ export const CreateBooking = (data) => async (dispatch) => {
   try {
     dispatch({ type: types.CREATE_BOOKING_REQUEST });
     const res = await axios.post(
-      `https://sore-pear-squid-wig.cyclic.app.app/appointments/create`,
+      `https://sore-pear-squid-wig.cyclic.app/appointments/create`,
       data
     );
     console.log(res);
@@ -166,7 +166,7 @@ export const AddBed = (data) => async (dispatch) => {
   try {
     dispatch({ type: types.ADD_BEDS_REQUEST });
     const res = await axios.post(
-      "https://sore-pear-squid-wig.cyclic.app.app/beds/add",
+      "https://sore-pear-squid-wig.cyclic.app/beds/add",
       data
     );
     console.log(res);
@@ -192,7 +192,7 @@ export const GetSingleBed = (data) => async (dispatch) => {
   try {
     dispatch({ type: types.GET_SINGLE_BEDS_REQUEST });
     const res = await axios.post(
-      "https://sore-pear-squid-wig.cyclic.app.app/beds/single",
+      "https://sore-pear-squid-wig.cyclic.app/beds/single",
       data
     );
     // console.log(res);
@@ -219,7 +219,7 @@ export const EditSingleBed = (data, id) => async (dispatch) => {
   try {
     dispatch({ type: types.GET_SINGLE_BEDS_REQUEST });
     const res = await axios.patch(
-      `https://sore-pear-squid-wig.cyclic.app.app/beds/${id}`,
+      `https://sore-pear-squid-wig.cyclic.app/beds/${id}`,
       data
     );
     // console.log(res);
@@ -246,7 +246,7 @@ export const dischargePatient = (data) => async (dispatch) => {
   try {
     dispatch({ type: types.DISCHARGE_PATIENT_REQUEST });
     const res = await axios.put(
-      `https://sore-pear-squid-wig.cyclic.app.app/beds/discharge`,
+      `https://sore-pear-squid-wig.cyclic.app/beds/discharge`,
       data
     );
     console.log(res);
@@ -273,7 +273,7 @@ export const GetPatients = () => async (dispatch) => {
   try {
     dispatch({ type: types.GET_PATIENT_REQUEST });
     const res = await axios.get(
-      `https://sore-pear-squid-wig.cyclic.app.app/patients`
+      `https://sore-pear-squid-wig.cyclic.app/patients`
     );
     console.log(res.data);
     dispatch({
@@ -290,7 +290,7 @@ export const GetAllData = () => async (dispatch) => {
   try {
     dispatch({ type: types.GET_ALLDATA_REQUEST });
     const res = await axios.get(
-      `https://sore-pear-squid-wig.cyclic.app.app/hospitals`
+      `https://sore-pear-squid-wig.cyclic.app/hospitals`
     );
     console.log(res.data);
     dispatch({
@@ -307,7 +307,7 @@ export const GetAllAppointment = () => async (dispatch) => {
   try {
     dispatch({ type: types.GET_APPOINTMENT_DETAILS_REQUEST });
     const res = await axios.get(
-      `https://sore-pear-squid-wig.cyclic.app.app/appointments`
+      `https://sore-pear-squid-wig.cyclic.app/appointments`
     );
     // console.log(res.data);
     // return res.data;
@@ -325,7 +325,7 @@ export const DeleteAppointment = (id) => async (dispatch) => {
   try {
     dispatch({ type: types.DELETE_APPOINTMENT_REQUEST });
     const res = await axios.delete(
-      `https://sore-pear-squid-wig.cyclic.app.app/appointments/${id}`
+      `https://sore-pear-squid-wig.cyclic.app/appointments/${id}`
     );
     console.log(res.data);
     // return res.data;
@@ -343,7 +343,7 @@ export const GetAllReports = () => async (dispatch) => {
   try {
     dispatch({ type: types.GET_REPORTS_REQUEST });
     const res = await axios.get(
-      `https://sore-pear-squid-wig.cyclic.app.app/reports`
+      `https://sore-pear-squid-wig.cyclic.app/reports`
     );
     // console.log(res.data);
     return res.data;

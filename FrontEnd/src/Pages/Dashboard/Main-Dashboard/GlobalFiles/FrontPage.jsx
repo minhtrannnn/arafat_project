@@ -42,7 +42,7 @@ const FrontPage = () => {
     <div className="container">
       <Sidebar />
       <div className="AfterSideBar">
-        <h1 style={{ color: "rgb(184 191 234)" }}>Overview</h1>
+        <h1 style={{ color: "rgb(220,20,60)" }}>Overview</h1>
         <div className="maindiv">
           <div className="one commondiv">
             <div>
@@ -83,22 +83,22 @@ const FrontPage = () => {
             <FaBed className="overviewIcon" />
           </div>
 
-          <div className="five commondiv">
+          {/* <div className="five commondiv">
             {" "}
             <div>
               <h1>{data?.ambulance}</h1>
               <p>Ambulance</p>
             </div>
             <FaAmbulance className="overviewIcon" />
-          </div>
-          <div className="six commondiv">
+          </div> */}
+          {/* <div className="six commondiv">
             {" "}
             <div>
               <h1>{data?.appointment}</h1>
               <p>Appointment</p>
             </div>
             <BsFillBookmarkCheckFill className="overviewIcon" />
-          </div>
+          </div> */}
           <div className="six commondiv">
             {" "}
             <div>
