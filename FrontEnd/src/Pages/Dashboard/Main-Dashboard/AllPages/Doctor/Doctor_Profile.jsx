@@ -52,7 +52,6 @@ const Doctor_Profile = () => {
   };
 
   const [formData, setFormData] = useState({
-    image: data.user.image,
     docName: data.user.docName,
     age: data.user.age,
     gender: data.user.gender,
@@ -68,7 +67,7 @@ const Doctor_Profile = () => {
 
   const handleFormSubmit = () => {
     disptach(UpdateDoctor(formData, data.user._id));
-    success("user updated");
+    success("User Updated");
     handleOk();
   };
 
@@ -91,7 +90,7 @@ const Doctor_Profile = () => {
               <div>
                 <img src={'https://i.ytimg.com/vi/SQJrYw1QvSQ/maxresdefault.jpg'} alt="avatar" />
               </div>
-              
+              <br></br>
               <div className="singleitemdiv">
                 <GiMeditation className="singledivicons" />
                 <p>{data?.user?.docName}</p>
@@ -133,11 +132,11 @@ const Doctor_Profile = () => {
               >
                 <form className="inputForm">
                   <input
-                    name="nurseName"
+                    name="docName"
                     value={formData.docName}
                     onChange={handleFormChange}
                     type="text"
-                    placeholder="Full name"
+                    placeholder="Full Name"
                   />
                   <input
                     name="age"
@@ -207,6 +206,7 @@ const Doctor_Profile = () => {
                   <p>{data?.user?.address}</p>
                 </div>
               </div>
+              
               {/* ***********  Third Div ******************** */}
               <div className="subSecondBox">
                 <h2 style={{ textAlign: "center"}}>
