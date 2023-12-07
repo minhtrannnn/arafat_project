@@ -27,10 +27,15 @@ const AllReport = () => {
                 <thead>
                   <tr>
                     <th>Patient Name</th>
-                    <th>Department</th>
                     <th>Doctor Name</th>
+                    <th>Department</th>
                     <th>Patient Mobile</th>
-                    <th>Patient Age</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Disease</th>
+                    <th>Prescription</th>
+                    <th>Weight</th>
+                    <th>Temperature</th>
                     <th>Date</th>
                   </tr>
                 </thead>
@@ -39,11 +44,23 @@ const AllReport = () => {
                     return (
                       <tr>
                         <td>{ele.patientName}</td>
+                        <td>Minh An</td>
                         <td>{ele.docDepartment}</td>
-                        <td>{ele.docName}</td>
                         <td>{ele.patientMobile}</td>
                         <td>{ele.patientAge}</td>
-                        <td>{ele.date}</td>
+                        <td>{ele.patientGender}</td>
+                        <td>{ele.patientDisease}</td>
+                        <td>
+                          {ele.extrainfo}:<br />
+                          {ele.medicines?.map((detail, index) => (
+                            <div key={index}>
+                              <p>Medicine: {detail.medName} / Dosage: {detail.dosage}</p>
+                            </div>
+                          ))}
+                        </td>
+                        <td>{ele.patientWeight}</td>
+                        <td>{ele.patientTemperature}</td>
+                        <td>{ele.date}  {ele.time}</td>
                       </tr>
                     );
                   })}

@@ -50,7 +50,6 @@ const Patient_Details = () => {
         <div className="AfterSideBar">
           <Topbar />
           <div className="Payment_Page">
-            {/* <h1 style={{ marginBottom: "2rem" }}>Patient Details</h1> */}
             <div className="patientBox">
               <Table columns={columns} dataSource={Datas} />
             </div>

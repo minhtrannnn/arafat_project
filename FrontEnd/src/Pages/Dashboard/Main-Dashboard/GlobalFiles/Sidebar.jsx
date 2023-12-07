@@ -133,41 +133,6 @@ const Sidebar = () => {
               </Link>
             ) : null}
 
-            {/* {user?.userType === "admin" ? (
-              <Link
-                className="link"
-                activeclassname="active"
-                to={"/addambulance"}
-              >
-                <div className="icon">
-                  <FaAmbulance className="mainIcon" />
-                </div>
-                <div
-                  style={{ display: isOpen ? "block" : "none" }}
-                  className="link_text"
-                >
-                  Add AMBU
-                </div>
-              </Link>
-            ) : null} */}
-            {/* {user?.userType === "admin" ? (
-              <Link
-                className="link"
-                activeclassname="active"
-                to={"/checkpayment"}
-              >
-                <div className="icon">
-                  <RiSecurePaymentLine className="mainIcon" />
-                </div>
-                <div
-                  style={{ display: isOpen ? "block" : "none" }}
-                  className="link_text"
-                >
-                  Payments
-                </div>
-              </Link>
-            ) : null} */}
-
             {user?.userType === "doctor" ? (
               <Link
                 className="link"
@@ -198,7 +163,7 @@ const Sidebar = () => {
                   style={{ display: isOpen ? "block" : "none" }}
                   className="link_text"
                 >
-                  Add Patient
+                  Patient Registration
                 </div>
               </Link>
             ) : null}
@@ -211,7 +176,7 @@ const Sidebar = () => {
                   style={{ display: isOpen ? "block" : "none" }}
                   className="link_text"
                 >
-                  Reports
+                  User Reports
                 </div>
               </Link>
             ) : null}
@@ -246,6 +211,23 @@ const Sidebar = () => {
                   className="link_text"
                 >
                   Create Report
+                </div>
+              </Link>
+            ) : null}
+            {user?.userType === "doctor" ? (
+              <Link
+                className="link"
+                activeclassname="active"
+                to={"/checkpayment"}
+              >
+                <div className="icon">
+                  <RiSecurePaymentLine className="mainIcon" />
+                </div>
+                <div
+                  style={{ display: isOpen ? "block" : "none" }}
+                  className="link_text"
+                >
+                  Billing and Checkout
                 </div>
               </Link>
             ) : null}
