@@ -1,6 +1,11 @@
 const mongoose = require("mongoose");
 
 const bedSchema = mongoose.Schema({
+  medication: {
+    type:String,
+    required: true,
+  },
+
   bedNumber: {
     type: Number,
     required: true,

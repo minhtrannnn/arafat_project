@@ -54,6 +54,8 @@ router.post("/login", async (req, res) => {
     console.log({ message: "Error" });
     console.log(error);
   }
+
+  console.log(1)
 });
 
 router.patch("/:adminId", async (req, res) => {

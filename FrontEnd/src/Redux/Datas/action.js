@@ -130,7 +130,7 @@ export const CreatePayment = (data) => async (dispatch) => {
 export const GetBeds = () => async (dispatch) => {
   try {
     dispatch({ type: types.GET_BED_REQUEST });
-    const res = await axios.get("https://sore-pear-squid-wig.cyclic.app.app/beds");
+    const res = await axios.get("https://sore-pear-squid-wig.cyclic.app/beds");
     console.log(res);
     dispatch({
       type: types.GET_BED_SUCCESS,

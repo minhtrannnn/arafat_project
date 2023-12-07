@@ -57,7 +57,7 @@
 .container {
   display: flex;
   gap: 2rem;
-  background-color: rgba(131, 220, 255, 0.29);
+  background-color: white;
   width: 100%;
   /* border: 2px solid green; */
   width: 100%;
@@ -73,7 +73,7 @@ main {
 }
 
 .sidebar {
-  background: rgba(255, 166, 134, 0.874);
+  background: rgb(220,20,60);
   color: #fff;
   height: 100vh;
   transition: all 0.5s;

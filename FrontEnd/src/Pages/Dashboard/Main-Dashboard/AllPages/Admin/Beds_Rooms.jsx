@@ -52,8 +52,8 @@ const Beds_Rooms = () => {
                   {beds?.map((ele) => {
                     return (
                       <tr>
-                        <td>{ele.roomNumber}</td>
-                        <td style={{ marginLeft: "1rem" }}>{ele.bedNumber}</td>
+                        <td>{ele.medication}</td>
+                        <td style={{ marginLeft: "1rem" }}>{ele.roomNumber}</td>
                         <td
                           style={{
                             color:
@@ -65,7 +65,7 @@ const Beds_Rooms = () => {
                         </td>
                         <td>
                           {ele.patientID
-                            ? ele.patientID.patientName
+                            ? ele.patientID.patien1tName
                             : "No Data"}
                         </td>
                         <td>

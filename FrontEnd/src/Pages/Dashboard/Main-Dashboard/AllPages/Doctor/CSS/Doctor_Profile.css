@@ -8,6 +8,7 @@
   display: flex;
   justify-content: space-between;
   gap: 1rem;
+  background-color: white;
 }
 
 .singleitemdiv {
@@ -21,7 +22,7 @@
   margin: 0rem 1rem;
 }
 
-.singleitemdiv:nth-child(even) .singledivicons {
+.singleitemdiv:nth-child .singledivicons {
   color: #ff6f6f;
 }
 
@@ -30,7 +31,8 @@
   padding: 1rem;
 }
 .firstBox div img {
-  width: 50%;
+  width: 200px;
+  height: auto;
   margin: auto;
   border-radius: 10rem;
   background-color: #efefef;
@@ -48,7 +50,7 @@
 }
 
 .singleitemdiv button {
-  width: 50%;
+  width: 40%;
   margin: auto;
   font-size: 1.5rem;
   padding: 10px;
@@ -57,8 +59,8 @@
   cursor: pointer;
   display: flex;
   gap: 1rem;
-  box-shadow: 0px 0px 3px -1px #4f33ea;
-  background-color: #84adea;
+  box-shadow: 0px 0px 3px -1px rgb(220,20,60);
+  background-color: rgb(220,20,60);
   text-align: center;
 }
 

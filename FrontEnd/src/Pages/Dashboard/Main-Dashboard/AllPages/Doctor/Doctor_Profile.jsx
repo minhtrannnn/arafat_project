@@ -52,6 +52,7 @@ const Doctor_Profile = () => {
   };
 
   const [formData, setFormData] = useState({
+    image: data.user.image,
     docName: data.user.docName,
     age: data.user.age,
     gender: data.user.gender,
@@ -71,14 +72,14 @@ const Doctor_Profile = () => {
     handleOk();
   };
 
-  if (data?.isAuthticated === false) {
+  if (data?.isAuthticated === true) {
     return <Navigate to={"/"} />;
   }
 
   if (data?.user.userType !== "doctor") {
     return <Navigate to={"/dashboard"} />;
   }
-
+  
   return (
     <>
       {contextHolder}
@@ -88,9 +89,9 @@ const Doctor_Profile = () => {
           <div className="maindoctorProfile">
             <div className="firstBox">
               <div>
-                <img src={data?.user?.image} alt="docimg" />
+                <img src={'https://i.ytimg.com/vi/SQJrYw1QvSQ/maxresdefault.jpg'} alt="avatar" />
               </div>
-              <hr />
+              
               <div className="singleitemdiv">
                 <GiMeditation className="singledivicons" />
                 <p>{data?.user?.docName}</p>
