@@ -170,7 +170,7 @@ const DLogin = () => {
                 required
               />
               <button type="submit">{Loading ? "Loading..." : "Submit"}</button>
-              <p style={{ marginTop: "10px" }}>
+              {/* <p style={{ marginTop: "10px" }}>
                 Forget Password?{" "}
                 <span
                   style={{ color: "blue", cursor: "pointer" }}
@@ -178,7 +178,7 @@ const DLogin = () => {
                 >
                   Send it to your Email!
                 </span>
-              </p>
+              </p> */}
 
               {/* ********************************************************* */}
               <Drawer

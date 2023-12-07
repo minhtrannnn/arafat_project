@@ -73,7 +73,6 @@ const Add_Admin = () => {
         <div className="AfterSideBar">
           <div className="Main_Add_Doctor_div">
             <h1>Add Admin</h1>
-            <img src={admin} alt="doctor" className="avatarimg" />
             <form onSubmit={HandleDoctorSubmit}>
               <div>
                 <label>Name</label>

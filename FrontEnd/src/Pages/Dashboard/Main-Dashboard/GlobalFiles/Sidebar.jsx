@@ -214,7 +214,7 @@ const Sidebar = () => {
                 </div>
               </Link>
             ) : null}
-            {user?.userType === "doctor" ? (
+            {/* {user?.userType === "doctor" ? (
               <Link
                 className="link"
                 activeclassname="active"
@@ -230,7 +230,7 @@ const Sidebar = () => {
                   Billing and Checkout
                 </div>
               </Link>
-            ) : null}
+            ) : null} */}
             {/* {user?.userType === "doctor" ? (
               <Link
                 className="link"
