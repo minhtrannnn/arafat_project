@@ -1,25 +1,6 @@
 const mongoose = require("mongoose");
 
 const medSchema = mongoose.Schema({
-  bedNumber: {
-    type: Number,
-    required: true,
-  },
-
-  roomNumber: {
-    type: Number,
-    required: true,
-  },
-
-  occupied: {
-    type: String,
-  },
-
-  patientID: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "patient",
-  },
-
   medication: {
     type:String,
     required: true,
