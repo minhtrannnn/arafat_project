@@ -11,6 +11,7 @@ import { FiLogOut } from "react-icons/fi";
 import { RiAdminLine } from "react-icons/ri";
 import { MdDashboardCustomize } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
+import "./CommonCSS.css"; 
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
