@@ -51,7 +51,7 @@ ID - 20020106
 
 Password - minhan
 
-For Back Up
+# Database Back Up
 
 Install mongodb datbase tool: https://www.mongodb.com/try/download/database-tools (Setup in C:\Drive)
 
@@ -70,3 +70,25 @@ Open System Properties
 => mongodump "MONGO_URI"(in the env. file)
 
 => "For future develope we are going to set up a automate backup procedure to avoid the inconvinience in backing up data manually"
+
+# Function and Data
+https://sore-pear-squid-wig.cyclic.app/admin
+https://sore-pear-squid-wig.cyclic.app/meds
+https://sore-pear-squid-wig.cyclic.app/staffs
+https://sore-pear-squid-wig.cyclic.app/patients
+https://sore-pear-squid-wig.cyclic.app/reports
+
+- Patient Overview Dashboard (Display all patients)
+
+- Staff Profile (Display staff basic profile)
+
+- Patient Registration (Register patient data and update it to the database)
+
+- Users Report (Display all patients info as well as their prescription, status, and admitted date)
+
+- Create Report (Register patients report info and update it to the database)
+
+- Inventory Management (Display Inventory Overview)
+
+- Add Admin, Staff (Registering admin/staff and update them to the database)
+
