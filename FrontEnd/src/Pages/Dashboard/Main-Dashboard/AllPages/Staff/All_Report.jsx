@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { GetAllReports } from "../../../../../Redux/Datas/action";
 import Sidebar from "../../GlobalFiles/Sidebar";
+import "./CSS/CommonCSS.css"; 
 
 const AllReport = () => {
   const dispatch = useDispatch();
@@ -34,7 +35,6 @@ const AllReport = () => {
                     <th>Gender</th>
                     <th>Disease</th>
                     <th>Prescription</th>
-                    <th>Weight</th>
                     <th>Temperature</th>
                     <th>Date</th>
                   </tr>
@@ -58,7 +58,6 @@ const AllReport = () => {
                             </div>
                           ))}
                         </td>
-                        <td>{ele.patientWeight}</td>
                         <td>{ele.patientTemperature}</td>
                         <td>{ele.date}  {ele.time}</td>
                       </tr>

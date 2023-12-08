@@ -147,11 +147,11 @@ const Sidebar = () => {
                 </div>
               </Link>
             ) : null}
-            {/* {user?.userType === "staff" ? (
+            {user?.userType === "staff" ? (
               <Link
                 className="link"
                 activeclassname="active"
-                to={"/createslip"}
+                to={"/createreport"}
               >
                 <div className="icon">
                   <BiDetail className="mainIcon" />
@@ -163,7 +163,7 @@ const Sidebar = () => {
                   Create Report
                 </div>
               </Link>
-            ) : null} */}
+            ) : null}
             {user?.userType === "staff" ? (
               <Link className="link" activeclassname="active" to={"/rooms"}>
                 <div className="icon">

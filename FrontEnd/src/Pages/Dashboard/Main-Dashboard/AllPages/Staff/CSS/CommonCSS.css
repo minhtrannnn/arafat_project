@@ -62,7 +62,6 @@
   /* border: 2px solid green; */
   width: 100%;
 }
-
 main {
   width: 100%;
   padding: 20px;
@@ -154,10 +153,12 @@ main {
 }
 
 .patientBox {
-  display: grid;
+  display:grid;
+  padding:15px;
+  text-align:left;
   overflow-x: auto;
   overflow-y: hidden;
-  white-space: wrap;
+  white-space: nowrap;
   width: 100%;
   background-color: white;
   border-radius: 1rem;

@@ -11,12 +11,6 @@ export const CreateReport = (data) => async (dispatch) => {
     );
     console.log(res);
     return res.data;
-    // dispatch({
-    //   type: types.CREATE_REPORT_SUCCESS,
-    //   payload: {
-    //
-    //   },
-    // });
   } catch (error) {
     dispatch({
       type: types.CREATE_REPORT_ERROR,
@@ -35,12 +29,6 @@ export const GetStaffDetails = () => async (dispatch) => {
       "https://sore-pear-squid-wig.cyclic.app/staffs"
     );
     console.log(res);
-    // dispatch({
-    //   type: types.GET_STAFF_SUCCESS,
-    //   payload: {
-    //
-    //   },
-    // });
   } catch (error) {
     dispatch({
       type: types.GET_STAFF_ERROR,
@@ -60,12 +48,6 @@ export const AddPatients = (data) => async (dispatch) => {
       data
     );
     return res.data;
-    // dispatch({
-    //   type: types.ADD_PATIENT_SUCCESS,
-    //   payload: {
-    //
-    //   },
-    // });
   } catch (error) {
     dispatch({
       type: types.ADD_PATIENT_ERROR,
@@ -85,12 +67,6 @@ export const CreateBeds = (data) => async (dispatch) => {
       data
     );
     return res.data;
-    // dispatch({
-    //   type: types.ADD_BED_SUCCESS,
-    //   payload: {
-    //
-    //   },
-    // });
   } catch (error) {
     dispatch({
       type: types.ADD_BED_ERROR,
@@ -130,12 +106,6 @@ export const AddBed = (data) => async (dispatch) => {
       data
     );
     console.log(res);
-    // dispatch({
-    //   type: types.ADD_BEDS_SUCCESS,
-    //   payload: {
-
-    //   },
-    // });
     return res.data;
   } catch (error) {
     dispatch({
@@ -155,21 +125,8 @@ export const GetSingleBed = (data) => async (dispatch) => {
       "https://sore-pear-squid-wig.cyclic.app/beds/single",
       data
     );
-    // console.log(res);
     return res.data;
-    // dispatch({
-    //   type: types.GET_SINGLE_BEDS_SUCCESS,
-    //   payload: {
-
-    //   },
-    // });
   } catch (error) {
-    // dispatch({
-    //   type: types.GET_SINGLE_BEDS_ERROR,
-    //   payload: {
-    //     message: error,
-    //   },
-    // });
     console.log(error);
   }
 };
@@ -182,21 +139,8 @@ export const EditSingleBed = (data, id) => async (dispatch) => {
       `https://sore-pear-squid-wig.cyclic.app/beds/${id}`,
       data
     );
-    // console.log(res);
     return res.data;
-    // dispatch({
-    //   type: types.GET_SINGLE_BEDS_SUCCESS,
-    //   payload: {
-
-    //   },
-    // });
   } catch (error) {
-    // dispatch({
-    //   type: types.GET_SINGLE_BEDS_ERROR,
-    //   payload: {
-    //     message: error,
-    //   },
-    // });
     console.log(error);
   }
 };
@@ -242,12 +186,7 @@ export const GetAllReports = () => async (dispatch) => {
     const res = await axios.get(
       `https://sore-pear-squid-wig.cyclic.app/reports`
     );
-    // console.log(res.data);
     return res.data;
-    // dispatch({
-    //   type: types.DELETE_APPOINTMENT_SUCCESS,
-    //   payload: id,
-    // });
   } catch (error) {
     console.log(error);
   }

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { CreatePayment, CreateReport } from "../../../../../Redux/Datas/action";
+import { CreateReport } from "../../../../../Redux/Datas/action";
 import Sidebar from "../../GlobalFiles/Sidebar";
 import "react-toastify/dist/ReactToastify.css";
 import { toast, ToastContainer } from "react-toastify";
 const notify = (text) => toast(text);
 
-const Discharge_and_Create_Slip = () => {
+const Create_Report = () => {
   const { data } = useSelector((store) => store.auth);
 
   const [loading, setLoading] = useState(false);
@@ -86,7 +86,7 @@ const Discharge_and_Create_Slip = () => {
     return <Navigate to={"/"} />;
   }
 
-  if (data?.user.userType !== "doctor") {
+  if (data?.user.userType !== "staff") {
     return <Navigate to={"/dashboard"} />;
   }
   return (
@@ -362,4 +362,4 @@ const Discharge_and_Create_Slip = () => {
   );
 };
 
-export default Discharge_and_Create_Slip;
+export default Create_Report;

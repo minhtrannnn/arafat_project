@@ -1,6 +1,6 @@
-import { Table } from "antd";
 import React from "react";
 import Sidebar from "./Sidebar";
+import { Table } from "antd";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { GetAllData, GetPatients } from "../../../../Redux/Datas/action";

@@ -1,7 +1,7 @@
 import * as types from "./types";
 import axios from "axios";
 
-//login user
+//STAFF LOGIN
 export const StaffLogin = (data) => async (dispatch) => {
   try {
     dispatch({ type: types.LOGIN_STAFF_REQUEST });
@@ -29,7 +29,7 @@ export const StaffLogin = (data) => async (dispatch) => {
   }
 };
 
-//login user
+//ADMIN LOGIN
 export const AdminLogin = (data) => async (dispatch) => {
   try {
     dispatch({ type: types.LOGIN_ADMIN_REQUEST });
@@ -65,17 +65,7 @@ export const StaffRegister = (data) => async (dispatch) => {
       "https://sore-pear-squid-wig.cyclic.app/staffs/register",
       data
     );
-    // console.log(res);
     return res.data;
-    // dispatch({
-    //   type: types.REGISTER_DOCTOR_SUCCESS,
-    //   payload: {
-    //     message: res.data.message,
-    //     user: res.data.user,
-    //     // token: res.data.token,
-    //     report: res.data.report,
-    //   },
-    // });
   } catch (error) {
     dispatch({
       type: types.REGISTER_STAFF_ERROR,
@@ -94,17 +84,7 @@ export const AdminRegister = (data) => async (dispatch) => {
       "https://sore-pear-squid-wig.cyclic.app/admin/register",
       data
     );
-    // console.log(res);
     return res.data;
-    // dispatch({
-    //   type: types.REGISTER_ADMIN_SUCCESS,
-    //   payload: {
-    //     message: res.data.message,
-    //     user: res.data.user,
-    //     // token: res.data.token,
-    //     report: res.data.report,
-    //   },
-    // });
   } catch (error) {
     dispatch({
       type: types.REGISTER_ADMIN_ERROR,
@@ -115,18 +95,7 @@ export const AdminRegister = (data) => async (dispatch) => {
   }
 };
 
-// logout user
-export const authLogout = () => async (dispatch) => {
-  try {
-    dispatch({
-      type: types.AUTH_LOGOUT,
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-//update staff
+//UPDATE STAFF
 export const UpdateStaff = (data, id) => async (dispatch) => {
   try {
     dispatch({ type: types.EDIT_STAFF_REQUEST });
@@ -136,6 +105,17 @@ export const UpdateStaff = (data, id) => async (dispatch) => {
     );
     console.log(res);
     dispatch({ type: types.EDIT_STAFF_SUCCESS, payload: res.data.user });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//LOGOUT
+export const authLogout = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: types.AUTH_LOGOUT,
+    });
   } catch (error) {
     console.log(error);
   }

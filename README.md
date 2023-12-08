@@ -1,60 +1,44 @@
-
-## To Run Locally
-
-Install dependencies
-
-```bash
-  npm install
-```
-
-Start the server
-
-```bash
-  npm run start
-```
-
-
 # MC Hospital Management System
 
 This a demo hospital management website project by Minh An and Hieu Lam, where we can perform some of the basic function of a hospital management system like patient registration, user profile, inventory management, create report,...
 
+# Team Members 
 
-## Used Technology
+- [@Minh An](https://github.com/minhtrannnn)
+- [@Hieu Lam](https://github.com/DaSonGo)
 
-**Client:** 
+# Running the Project Locally
 
-- **React**
-- **Redux Thunk**
-- **Axios**
-- **Ant-Designs**
+Install dependencies
 
-**Server:**
+Open the folder Arafat_Project
+Open VS Code terminal
 
-- **Node Js**
-- **Mongo DB**
-- **Express Js**
-- **JWT**
+BACKEND 
+#####################
+=> cd Backend
+=> npm install
+=> npm start 
+=> Checking connection with MongoDB database (there will be an .env file containing the link and credentials needed to connect to mongodb database along with a token key that allows authorization towards the hosted database website)
+#####################
 
-## Deployment
+FRONTEND
+#####################
+=> cd FrontEnd
+=> npm install
+=> npm start
+#####################
 
-- **Client**  (Local)
-- **Server** - (Cyclic)
 
-## Credentials
+=> Local Host: http://localhost:3000/
+
+# Initial Credentials (Both Staff and Admin)
 
 ID - 20020106
 
 Password - minhan
 
-## Features
-
-- Admin controls
-- Admitting Patients
-- Generating reports 
-- Inventory management
-- Overall control of hospital
-
-## Team Members / Contributors
-
-- [@Minh An](https://github.com/minhtrannnn)
-- [@Hieu Lam](https://github.com/DaSonGo)
+For Back Up
+=> Open Window Terminal (cmd)
+=> cd to HospotalManagementBackup
+=> mongodump "MONGO_URI"(in the env. file)
