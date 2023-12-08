@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Radio } from "antd";
+import "./DLogin.css";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { AdminLogin, StaffLogin } from "../../../Redux/auth/action";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./DLogin.css";
 
 const notify = (text) => toast(text);
 

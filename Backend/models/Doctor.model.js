@@ -1,21 +1,21 @@
 const mongoose = require("mongoose");
 
-const staffSchema = mongoose.Schema({
+const doctorSchema = mongoose.Schema({
   userType: {
     type: String,
-    default: "staff",
+    default: "doctor",
   },
 
-  staffID: {
+  docID: {
     type: Number,
     required: true,
   },
 
-  staffName: {
+  docName: {
     type: String,
   },
 
-  staffRole: {
+  role: {
     type: String,
   },
 
@@ -71,6 +71,6 @@ const staffSchema = mongoose.Schema({
   },
 });
 
-const StaffModel = mongoose.model("staff", staffSchema);
+const DoctorModel = mongoose.model("doctor", doctorSchema);
 
-module.exports = { StaffModel };
+module.exports = { DoctorModel };

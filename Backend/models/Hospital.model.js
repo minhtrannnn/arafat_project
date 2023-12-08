@@ -1,11 +1,19 @@
 const mongoose = require("mongoose");
 
 const hospitalSchema = mongoose.Schema({
-  staffNumbers: {
+  docNumbers: {
     type: Number,
   },
 
   patientNumbers: {
+    type: Number,
+  },
+
+  nurseNumbers: {
+    type: Number,
+  },
+
+  ambulanceNumbers: {
     type: Number,
   },
 
@@ -14,6 +22,10 @@ const hospitalSchema = mongoose.Schema({
   },
 
   bedNumbers: {
+    type: Number,
+  },
+
+  appointmentNumbers: {
     type: Number,
   },
 

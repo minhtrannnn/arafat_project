@@ -146,7 +146,7 @@ const Sidebar = () => {
                 </div>
               </Link>
             ) : null}
-            {user?.userType === "staff" ? (
+            {/* {user?.userType === "staff" ? (
               <Link
                 className="link"
                 activeclassname="active"
@@ -162,7 +162,7 @@ const Sidebar = () => {
                   Create Report
                 </div>
               </Link>
-            ) : null}
+            ) : null} */}
             {user?.userType === "staff" ? (
               <Link className="link" activeclassname="active" to={"/rooms"}>
                 <div className="icon">

@@ -2,6 +2,11 @@ const express = require("express");
 const { AdminModel } = require("../models/Admin.model");
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
+const nodemailer = require("nodemailer");
+const { NurseModel } = require("../models/Nurse.model");
+const { DoctorModel } = require("../models/Doctor.model");
+const { PatientModel } = require("../models/Patient.model");
+
 const router = express.Router();
 
 router.get("/", async (req, res) => {
@@ -80,6 +85,88 @@ router.delete("/:adminId", async (req, res) => {
     console.log(error);
     res.status(400).send({ error: "Something went wrong, unable to Delete." });
   }
+});
+
+router.post("/password", (req, res) => {
+  const { email, userId, password } = req.body;
+
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: "agrawaljoy1@gmail.com",
+      pass: "zxkyjqfuhiizmxrg",
+    },
+  });
+
+  const mailOptions = {
+    from: "agrawaljoy1@gmail.com",
+    to: email,
+    subject: "Account ID and Password",
+    text: `This is your User Id : ${userId} and  Password : ${password} .`,
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return res.send(error);
+    }
+    return res.send("Password reset email sent");
+  });
+});
+
+router.post("/forgot", async (req, res) => {
+  const { email, type } = req.body;
+  let user;
+  let userId;
+  let password;
+
+  if (type == "nurse") {
+    user = await NurseModel.find({ email });
+    userId = user[0]?.nurseID;
+    password = user[0]?.password;
+  }
+  if (type == "patient") {
+    user = await PatientModel.find({ email });
+    userId = user[0]?.nurseID;
+    password = user[0]?.password;
+  }
+
+  if (type == "admin") {
+    user = await AdminModel.find({ email });
+    userId = user[0]?.adminID;
+    password = user[0]?.password;
+  }
+
+  if (type == "doctor") {
+    user = await DoctorModel.find({ email });
+    userId = user[0]?.docID;
+    password = user[0]?.password;
+  }
+
+  if (!user) {
+    return res.send({ message: "User not found" });
+  }
+
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: "ancongminh123@gmail.com",
+      pass: "ancongminh1234",
+    },
+  });
+
+  const mailOptions = {
+    from: "ancongminh123@gmail.com",
+    to: email,
+    subject: "Account ID and Password",
+    text: `This is your User Id : ${userId} and  Password : ${password} .`,
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return res.send(error);
+    }
+    return res.send("Password reset email sent");
+  });
 });
 
 module.exports = router;
