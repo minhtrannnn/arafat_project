@@ -58,90 +58,23 @@ export const AddPatients = (data) => async (dispatch) => {
   }
 };
 
-//ADD BEDS
-export const CreateBeds = (data) => async (dispatch) => {
+//GET MEDS
+export const GetMeds = () => async (dispatch) => {
   try {
-    dispatch({ type: types.ADD_BED_REQUEST });
-    const res = await axios.post(
-      "https://sore-pear-squid-wig.cyclic.app/beds/add",
-      data
-    );
-    return res.data;
-  } catch (error) {
-    dispatch({
-      type: types.ADD_BED_ERROR,
-      payload: {
-        message: error,
-      },
-    });
-  }
-};
-
-//GET BEDS
-export const GetBeds = () => async (dispatch) => {
-  try {
-    dispatch({ type: types.GET_BED_REQUEST });
-    const res = await axios.get("https://sore-pear-squid-wig.cyclic.app/beds");
+    dispatch({ type: types.GET_MED_REQUEST });
+    const res = await axios.get("https://sore-pear-squid-wig.cyclic.app/meds");
     console.log(res);
     dispatch({
-      type: types.GET_BED_SUCCESS,
+      type: types.GET_MED_SUCCESS,
       payload: res.data,
     });
   } catch (error) {
     dispatch({
-      type: types.GET_BED_ERROR,
+      type: types.GET_MED_ERROR,
       payload: {
         message: error,
       },
     });
-  }
-};
-
-//ADD BEDS
-export const AddBed = (data) => async (dispatch) => {
-  try {
-    dispatch({ type: types.ADD_BEDS_REQUEST });
-    const res = await axios.post(
-      "https://sore-pear-squid-wig.cyclic.app/beds/add",
-      data
-    );
-    console.log(res);
-    return res.data;
-  } catch (error) {
-    dispatch({
-      type: types.ADD_BEDS_ERROR,
-      payload: {
-        message: error,
-      },
-    });
-  }
-};
-
-// GET SINGLE BED
-export const GetSingleBed = (data) => async (dispatch) => {
-  try {
-    dispatch({ type: types.GET_SINGLE_BEDS_REQUEST });
-    const res = await axios.post(
-      "https://sore-pear-squid-wig.cyclic.app/beds/single",
-      data
-    );
-    return res.data;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-// EDIT SINGLE BED
-export const EditSingleBed = (data, id) => async (dispatch) => {
-  try {
-    dispatch({ type: types.GET_SINGLE_BEDS_REQUEST });
-    const res = await axios.patch(
-      `https://sore-pear-squid-wig.cyclic.app/beds/${id}`,
-      data
-    );
-    return res.data;
-  } catch (error) {
-    console.log(error);
   }
 };
 

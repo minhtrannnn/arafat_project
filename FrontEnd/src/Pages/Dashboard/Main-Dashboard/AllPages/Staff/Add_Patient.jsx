@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { message} from "antd";
+import { message } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -66,45 +66,16 @@ const Add_Patient = () => {
     }
     try {
       setLoading(true);
-      dispatch(GetSingleBed(bedDetails)).then((res) => {
-        if (res.message === "Bed not found") {
-          setLoading(false);
-          return notify("Bed not found");
-        }
-        if (res.message === "Occupied") {
-          setLoading(false);
-          return notify("Bed already occupied");
-        }
-        if (res.message === "No Bed") {
-          setLoading(false);
-          return notify("Bed not found");
-        }
-        if (res.message === "Available") {
-          dispatch(AddPatients(AddPatient)).then((item) => {
-            if (item.message === "Patient already exists") {
-              setLoading(false);
-              return notify("Patient already exists");
-            }
-            let data = {
-              patientID: item._id,
-              occupied: "occupied",
-            };
-            notify("Patient Added");
 
-            dispatch(EditSingleBed(data, res.id)).then((ele) =>
-              console.log(ele)
-            );
-            notify("Bed updated");
-            setLoading(false);
-            setAddPatient(InitData);
-            setbedDetails(initBed);
-          });
-        } else {
+      dispatch(AddPatients(AddPatient)).then((item) => {
+        if (item.message === "Patient already exists") {
           setLoading(false);
-          console.log("error");
+          return notify("Patient already exists");
         }
+        notify("Patient Added");
+        setLoading(false);
+        setAddPatient(InitData);
       });
-      //
     } catch (error) {
       setLoading(false);
       console.log(error);
@@ -129,7 +100,6 @@ const Add_Patient = () => {
             <h1>Add Patient</h1>
 
             <form onSubmit={HandleOnsubmitAppointment}>
-              {/* Name PlaceHolder */}
               <div>
                 <label>Patient Name</label>
                 <div className="inputdiv">
@@ -143,7 +113,7 @@ const Add_Patient = () => {
                   />
                 </div>
               </div>
-              {/* AGE PLACEHOLDER  */}
+
               <div>
                 <label>Age</label>
                 <div className="inputdiv">
@@ -157,7 +127,7 @@ const Add_Patient = () => {
                   />
                 </div>
               </div>
-              {/* EMAIL PLACEHOLDER  */}
+
               <div>
                 <label>Email</label>
                 <div className="inputdiv">
@@ -184,7 +154,7 @@ const Add_Patient = () => {
                   />
                 </div>
               </div>
-              {/* GENDER PLACEHOLDER  */}
+
               <div>
                 <label>Gender</label>
                 <div className="inputdiv">
@@ -201,7 +171,7 @@ const Add_Patient = () => {
                   </select>
                 </div>
               </div>
-              {/* DATE OF BIRTH  */}
+
               <div className="dateofAppointment">
                 <p>Birth Date</p>
                 <div className="inputdiv">
@@ -215,7 +185,7 @@ const Add_Patient = () => {
                   />
                 </div>
               </div>
-              {/* MOBILE PLACEHOLDER */}
+
               <div>
                 <label>Contact Number</label>
                 <div className="inputdiv">
@@ -230,7 +200,6 @@ const Add_Patient = () => {
                 </div>
               </div>
 
-              {/* ADDRESS SECTION  */}
               <div>
                 <label>Address</label>
                 <div className="inputdiv">
@@ -240,33 +209,6 @@ const Add_Patient = () => {
                     name="address"
                     value={AddPatient.address}
                     onChange={HandleAppointment}
-                    required
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label>Bed Number</label>
-                <div className="inputdiv">
-                  <input
-                    type="number"
-                    placeholder="Bed No"
-                    name="bedNumber"
-                    value={bedDetails.bedNumber}
-                    onChange={HandleBedchange}
-                    required
-                  />
-                </div>
-              </div>
-              <div>
-                <label>Room Number</label>
-                <div className="inputdiv">
-                  <input
-                    type="number"
-                    placeholder="Room No"
-                    name="roomNumber"
-                    value={bedDetails.roomNumber}
-                    onChange={HandleBedchange}
                     required
                   />
                 </div>
@@ -359,7 +301,6 @@ const Add_Patient = () => {
                 </div>
               </div>
 
-              {/* PASSWORD*/}
               <div className="dateofAppointment">
                 <p>Password</p>
                 <div className="inputdiv">

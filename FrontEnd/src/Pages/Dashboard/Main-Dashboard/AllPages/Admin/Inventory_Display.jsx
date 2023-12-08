@@ -2,21 +2,19 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { dischargePatient, GetBeds } from "../../../../../Redux/Datas/action";
+import { GetMeds } from "../../../../../Redux/Datas/action";
 import Sidebar from "../../GlobalFiles/Sidebar";
 
-const Beds_Rooms = () => {
+const Inventory_Display = () => {
   const { data } = useSelector((store) => store.auth);
 
   const dispatch = useDispatch();
 
-  const { beds } = useSelector((state) => state.data);
+  const { meds } = useSelector((state) => state.data);
 
   useEffect(() => {
-    dispatch(GetBeds());
+    dispatch(GetMeds());
   }, [dispatch]);
-
-
 
   if (data?.isAuthticated === false) {
     return <Navigate to={"/"} />;
@@ -27,7 +25,7 @@ const Beds_Rooms = () => {
       <div className="container">
         <Sidebar />
         <div className="AfterSideBar">
-          <div className="Payment_Page">
+          <div>
             <h1 style={{ marginBottom: "2rem" }}>Inventory Overview</h1>
             <div className="patientBox">
               <table>
@@ -43,11 +41,11 @@ const Beds_Rooms = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {beds?.map((ele) => {
+                  {meds?.map((ele) => {
                     return (
                       <tr>
                         <td>{ele.medication}</td>
-                        <td style={{ marginLeft: "1rem" }}>{ele.roomNumber}</td>
+                        <td style={{ marginLeft: "1rem" }}>{ele.quantity}</td>
                         <td
                           style={{
                             color:
@@ -61,38 +59,6 @@ const Beds_Rooms = () => {
                         <td style={{ marginLeft: "1rem" }}>{ele.date}</td>
                         <td style={{ marginLeft: "1rem" }}>{ele.location}</td>
                         <td style={{ marginLeft: "1rem" }}>{ele.price}</td>
-                        {/* <td>
-                          {ele.patientID
-                            ? ele.patientID.patien1tName
-                            : "No Data"}
-                        </td>
-                        <td>
-                          {ele.patientID?.disease
-                            ? ele.patientID.disease
-                            : "No Data"}
-                        </td>
-                        <td>
-                          {ele.patientID?.docID
-                            ? ele.patientID.docID.docName
-                            : "No Data"}
-                        </td>
-                        <td>
-                          <button
-                            disabled={ele.occupied === "available"}
-                            style={{
-                              border: "none",
-                              outline: "none",
-                              background: "transparent",
-                              color:
-                                ele.occupied === "available" ? "gray" : "red",
-                              cursor:
-                                ele.occupied === "available" ? "" : "pointer",
-                            }}
-                            onClick={() => DischargePatient(ele._id)}
-                          >
-                            Discharge
-                          </button>
-                        </td> */}
                       </tr>
                     );
                   })}
@@ -106,4 +72,4 @@ const Beds_Rooms = () => {
   );
 };
 
-export default Beds_Rooms;
+export default Inventory_Display;

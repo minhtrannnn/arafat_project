@@ -4,7 +4,7 @@ require("dotenv").config();
 const cors = require("cors");
 
 const adminRouter = require("./routes/Admins.Route");
-const bedRouter = require("./routes/Beds.Route");
+const medRouter = require("./routes/Meds.Route");
 const staffRouter = require("./routes/Staffs.Route");
 const hospitalRouter = require("./routes/Hospitals.Route");
 const patientRouter = require("./routes/Patients.Route");
@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/admin", adminRouter);
-app.use("/beds", bedRouter);
+app.use("/meds", medRouter);
 app.use("/staffs", staffRouter);
 app.use("/hospitals", hospitalRouter);
 app.use("/patients", patientRouter);

@@ -4,25 +4,24 @@ const initialState = {
   loading: false,
   error: false,
   reports: [],
-  beds: [],
+  meds: [],
   staffs: [],
   patients: [],
   dashboard: [],
-  Appointments: [],
 };
 
 export default function dataReducer(state = initialState, { type, payload }) {
   switch (type) {
-    case types.GET_BED_REQUEST:
+    case types.GET_MED_REQUEST:
       return {
         ...state,
         loading: true,
       };
-    case types.GET_BED_SUCCESS:
+    case types.GET_MED_SUCCESS:
       return {
         ...state,
         loading: false,
-        beds: payload,
+        meds: payload,
       };
     case types.GET_PATIENT_SUCCESS:
       return {

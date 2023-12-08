@@ -83,20 +83,6 @@ const Sidebar = () => {
                 </div>
               </Link>
             ) : null}
-
-            {/* {user?.userType === "admin" ? (
-              <Link className="link" activeclassname="active" to={"/addbeds"}>
-                <div className="icon">
-                  <TbBed className="mainIcon" />
-                </div>
-                <div
-                  style={{ display: isOpen ? "block" : "none" }}
-                  className="link_text"
-                >
-                  Add Beds
-                </div>
-              </Link>
-            ) : null} */}
             {/* ############################################ */}
 
             {/* ################## STAFF ################### */}
@@ -165,7 +151,7 @@ const Sidebar = () => {
               </Link>
             ) : null}
             {user?.userType === "staff" ? (
-              <Link className="link" activeclassname="active" to={"/rooms"}>
+              <Link className="link" activeclassname="active" to={"/inventory"}>
                 <div className="icon">
                   <MdBedroomChild className="mainIcon" />
                 </div>

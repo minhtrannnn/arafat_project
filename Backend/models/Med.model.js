@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const bedSchema = mongoose.Schema({
+const medSchema = mongoose.Schema({
   bedNumber: {
     type: Number,
     required: true,
@@ -56,6 +56,6 @@ const bedSchema = mongoose.Schema({
   },
 });
 
-const BedModel = mongoose.model("bed", bedSchema);
+const MedModel = mongoose.model("med", medSchema);
 
-module.exports = { BedModel };
+module.exports = { MedModel };
