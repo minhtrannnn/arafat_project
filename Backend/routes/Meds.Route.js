@@ -6,7 +6,7 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   let query = req.query;
   try {
-    const meds = await ReportModel.find(query);
+    const meds = await MedModel.find(query);
     res.status(200).send(meds);
   } catch (error) {
     console.log(error);
