@@ -39,6 +39,13 @@ ID - 20020106
 Password - minhan
 
 For Back Up
+Install mongodb datbase tool: https://www.mongodb.com/try/download/database-tools (Setup in C:\Drive)
+Open System Properties
+=> Click on Environment Variables 
+=> Edit System Variables/Path
+=> Add New Variables: ("Path towards extracted folder ...\MongoDB\Tools\100\bin) 
+
 => Open Window Terminal (cmd)
 => cd to HospotalManagementBackup
 => mongodump "MONGO_URI"(in the env. file)
+=> "For future develope we are going to set up a automate backup procedure to avoid the inconvinience in backing up data manually"

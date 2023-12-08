@@ -8,8 +8,6 @@ const bedRouter = require("./routes/Beds.Route");
 const staffRouter = require("./routes/Staffs.Route");
 const hospitalRouter = require("./routes/Hospitals.Route");
 const patientRouter = require("./routes/Patients.Route");
-const paymentRouter = require("./routes/Payments.route");
-const prescriptionRouter = require("./routes/Prescriptions.Route");
 const reportRouter = require("./routes/Reports.Route");
 
 const app = express();
@@ -27,8 +25,6 @@ app.use("/beds", bedRouter);
 app.use("/staffs", staffRouter);
 app.use("/hospitals", hospitalRouter);
 app.use("/patients", patientRouter);
-app.use("/payments", paymentRouter);
-app.use("/prescriptions", prescriptionRouter);
 app.use("/reports", reportRouter);
 
 app.listen(process.env.PORT, async () => {
