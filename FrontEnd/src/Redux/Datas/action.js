@@ -27,23 +27,23 @@ export const CreateReport = (data) => async (dispatch) => {
   }
 };
 
-// GET DOCTOR DETAILS
-export const GetDoctorDetails = () => async (dispatch) => {
+// GET STAFF DETAILS
+export const GetStaffDetails = () => async (dispatch) => {
   try {
-    dispatch({ type: types.GET_DOCTOR_REQUEST });
+    dispatch({ type: types.GET_STAFF_REQUEST });
     const res = await axios.get(
-      "https://sore-pear-squid-wig.cyclic.app/doctors"
+      "https://sore-pear-squid-wig.cyclic.app/staffs"
     );
     console.log(res);
     // dispatch({
-    //   type: types.GET_DOCTOR_SUCCESS,
+    //   type: types.GET_STAFF_SUCCESS,
     //   payload: {
     //
     //   },
     // });
   } catch (error) {
     dispatch({
-      type: types.GET_DOCTOR_ERROR,
+      type: types.GET_STAFF_ERROR,
       payload: {
         message: error,
       },
@@ -101,31 +101,6 @@ export const CreateBeds = (data) => async (dispatch) => {
   }
 };
 
-//create payment
-export const CreatePayment = (data) => async (dispatch) => {
-  try {
-    dispatch({ type: types.CREATE_PAYMENT_REQUEST });
-    const res = await axios.post(
-      "https://sore-pear-squid-wig.cyclic.app/payments/add",
-      data
-    );
-    console.log(res.data);
-    // dispatch({
-    //   type: types.CREATE_PAYMENT_SUCCESS,
-    //   payload: {
-    //
-    //   },
-    // });
-  } catch (error) {
-    dispatch({
-      type: types.CREATE_PAYMENT_ERROR,
-      payload: {
-        message: error,
-      },
-    });
-  }
-};
-
 //GET BEDS
 export const GetBeds = () => async (dispatch) => {
   try {
@@ -146,22 +121,7 @@ export const GetBeds = () => async (dispatch) => {
   }
 };
 
-//CREATE BOOKING
-export const CreateBooking = (data) => async (dispatch) => {
-  try {
-    dispatch({ type: types.CREATE_BOOKING_REQUEST });
-    const res = await axios.post(
-      `https://sore-pear-squid-wig.cyclic.app/appointments/create`,
-      data
-    );
-    console.log(res);
-    // dispatch({ type: types.CREATE_BOOKING_SUCCESS, payload: res.data.postData });
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-//GET BEDS
+//ADD BEDS
 export const AddBed = (data) => async (dispatch) => {
   try {
     dispatch({ type: types.ADD_BEDS_REQUEST });
@@ -241,33 +201,6 @@ export const EditSingleBed = (data, id) => async (dispatch) => {
   }
 };
 
-// DISCHARGE PATIENT
-export const dischargePatient = (data) => async (dispatch) => {
-  try {
-    dispatch({ type: types.DISCHARGE_PATIENT_REQUEST });
-    const res = await axios.put(
-      `https://sore-pear-squid-wig.cyclic.app/beds/discharge`,
-      data
-    );
-    console.log(res);
-    // return res.data;
-    dispatch({
-      type: types.DISCHARGE_PATIENT_SUCCESS,
-      payload: {
-        bed: res.data.bed,
-      },
-    });
-  } catch (error) {
-    // dispatch({
-    // type: types.DISCHARGE_PATIENT_ERROR,
-    //   payload: {
-    //     message: error,
-    //   },
-    // });
-    console.log(error);
-  }
-};
-
 // GET ALL PATIENT
 export const GetPatients = () => async (dispatch) => {
   try {
@@ -296,42 +229,6 @@ export const GetAllData = () => async (dispatch) => {
     dispatch({
       type: types.GET_ALLDATA_SUCCESS,
       payload: res.data,
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-// GET ALL APPOINTMENT DETAILS
-export const GetAllAppointment = () => async (dispatch) => {
-  try {
-    dispatch({ type: types.GET_APPOINTMENT_DETAILS_REQUEST });
-    const res = await axios.get(
-      `https://sore-pear-squid-wig.cyclic.app/appointments`
-    );
-    // console.log(res.data);
-    // return res.data;
-    dispatch({
-      type: types.GET_APPOINTMENT_DETAILS_SUCCESS,
-      payload: res.data,
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-// DELETE APPOINTMENTS
-export const DeleteAppointment = (id) => async (dispatch) => {
-  try {
-    dispatch({ type: types.DELETE_APPOINTMENT_REQUEST });
-    const res = await axios.delete(
-      `https://sore-pear-squid-wig.cyclic.app/appointments/${id}`
-    );
-    console.log(res.data);
-    // return res.data;
-    dispatch({
-      type: types.DELETE_APPOINTMENT_SUCCESS,
-      payload: id,
     });
   } catch (error) {
     console.log(error);

@@ -1,4 +1,4 @@
-.Main_Add_Doctor_div {
+.Main_Add_Staff_div {
   margin: auto;
   margin-top: 2rem;
   padding: 3rem;
@@ -8,18 +8,10 @@
   background-color: white;
 }
 
-.Main_Add_Doctor_div h1 {
+.Main_Add_Staff_div h1 {
   text-align: center;
   font-size: 2.5rem;
   margin: 0rem 0rem 1rem 0rem;
-}
-
-.Main_Add_Doctor_div img {
-  width: 10%;
-  display: block;
-  margin: auto;
-  margin-bottom: 2rem;
-  border-radius: 6rem;
 }
 
 form div {
@@ -84,7 +76,7 @@ input::-webkit-inner-spin-button {
 }
 
 @media only screen and (max-width: 1024px) {
-  .Main_Add_Doctor_div img {
+  .Main_Add_Staff_div img {
     width: 30%;
   }
   .formsubmitbutton {
@@ -93,7 +85,7 @@ input::-webkit-inner-spin-button {
 }
 
 @media only screen and (max-width: 850px) {
-  .Main_Add_Doctor_div img {
+  .Main_Add_Staff_div img {
     width: 30%;
   }
   form div {
@@ -102,7 +94,7 @@ input::-webkit-inner-spin-button {
   .inputdiv {
     width: 100%;
   }
-  .Main_Add_Doctor_div {
+  .Main_Add_Staff_div {
     padding: 1rem;
   }
   .adressdiv {
@@ -114,10 +106,10 @@ input::-webkit-inner-spin-button {
 }
 
 @media only screen and (max-width: 600px) {
-  .Main_Add_Doctor_div h1 {
+  .Main_Add_Staff_div h1 {
     font-size: 1.7rem;
   }
-  .Main_Add_Doctor_div {
+  .Main_Add_Staff_div {
     width: 100%;
   }
   .formsubmitbutton {

@@ -2,16 +2,16 @@ import * as types from "./types";
 import axios from "axios";
 
 //login user
-export const DoctorLogin = (data) => async (dispatch) => {
+export const StaffLogin = (data) => async (dispatch) => {
   try {
-    dispatch({ type: types.LOGIN_DOCTOR_REQUEST });
+    dispatch({ type: types.LOGIN_STAFF_REQUEST });
     const res = await axios.post(
-      "https://sore-pear-squid-wig.cyclic.app/doctors/login",
+      "https://sore-pear-squid-wig.cyclic.app/staffs/login",
       data
     );
     console.log(res.data);
     dispatch({
-      type: types.LOGIN_DOCTOR_SUCCESS,
+      type: types.LOGIN_STAFF_SUCCESS,
       payload: {
         message: res.data.message,
         user: res.data.user,
@@ -21,7 +21,7 @@ export const DoctorLogin = (data) => async (dispatch) => {
     return res.data;
   } catch (error) {
     dispatch({
-      type: types.LOGIN_DOCTOR_ERROR,
+      type: types.LOGIN_STAFF_ERROR,
       payload: {
         message: error,
       },
@@ -57,12 +57,12 @@ export const AdminLogin = (data) => async (dispatch) => {
   }
 };
 
-// REGISTER DOCTOR
-export const DoctorRegister = (data) => async (dispatch) => {
+// REGISTER STAFF
+export const StaffRegister = (data) => async (dispatch) => {
   try {
-    dispatch({ type: types.REGISTER_DOCTOR_REQUEST });
+    dispatch({ type: types.REGISTER_STAFF_REQUEST });
     const res = await axios.post(
-      "https://sore-pear-squid-wig.cyclic.app/doctors/register",
+      "https://sore-pear-squid-wig.cyclic.app/staffs/register",
       data
     );
     // console.log(res);
@@ -78,36 +78,7 @@ export const DoctorRegister = (data) => async (dispatch) => {
     // });
   } catch (error) {
     dispatch({
-      type: types.REGISTER_DOCTOR_ERROR,
-      payload: {
-        message: error,
-      },
-    });
-  }
-};
-
-// REGISTER NURSE
-export const NurseRegister = (data) => async (dispatch) => {
-  try {
-    dispatch({ type: types.REGISTER_NURSE_REQUEST });
-    const res = await axios.post(
-      "https://sore-pear-squid-wig.cyclic.app/nurses/register",
-      data
-    );
-    // console.log(res);
-    return res.data;
-    // dispatch({
-    //   type: types.REGISTER_NURSE_SUCCESS,
-    //   payload: {
-    //     message: res.data.message,
-    //     user: res.data.user,
-    //     // token: res.data.token,
-    //     report: res.data.report,
-    //   },
-    // });
-  } catch (error) {
-    dispatch({
-      type: types.REGISTER_NURSE_ERROR,
+      type: types.REGISTER_STAFF_ERROR,
       payload: {
         message: error,
       },
@@ -144,34 +115,6 @@ export const AdminRegister = (data) => async (dispatch) => {
   }
 };
 
-// REGISTER AMBULANCE
-export const AmbulanceRegister = (data) => async (dispatch) => {
-  try {
-    dispatch({ type: types.REGISTER_AMBULANCE_REQUEST });
-    const res = await axios.post(
-      "https://sore-pear-squid-wig.cyclic.app/ambulances/add",
-      data
-    );
-    console.log(res);
-    // dispatch({
-    //   type: types.REGISTER_AMBULANCE_SUCCESS,
-    //   payload: {
-    //     message: res.data.message,
-    //     user: res.data.user,
-    //     // token: res.data.token,
-    //     report: res.data.report,
-    //   },
-    // });
-  } catch (error) {
-    dispatch({
-      type: types.REGISTER_AMBULANCE_ERROR,
-      payload: {
-        message: error,
-      },
-    });
-  }
-};
-
 // logout user
 export const authLogout = () => async (dispatch) => {
   try {
@@ -183,61 +126,16 @@ export const authLogout = () => async (dispatch) => {
   }
 };
 
-//update nurse
-export const UpdateNurse = (data, id) => async (dispatch) => {
+//update staff
+export const UpdateStaff = (data, id) => async (dispatch) => {
   try {
-    dispatch({ type: types.EDIT_NURSE_REQUEST });
+    dispatch({ type: types.EDIT_STAFF_REQUEST });
     const res = await axios.patch(
-      `https://sore-pear-squid-wig.cyclic.app/nurses/${id}`,
+      `https://sore-pear-squid-wig.cyclic.app/staffs/${id}`,
       data
     );
     console.log(res);
-    dispatch({ type: types.EDIT_NURSE_SUCCESS, payload: res.data.user });
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-//update doctor
-export const UpdateDoctor = (data, id) => async (dispatch) => {
-  try {
-    dispatch({ type: types.EDIT_DOCTOR_REQUEST });
-    const res = await axios.patch(
-      `https://sore-pear-squid-wig.cyclic.app/doctors/${id}`,
-      data
-    );
-    console.log(res);
-    dispatch({ type: types.EDIT_DOCTOR_SUCCESS, payload: res.data.user });
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-//update doctor
-export const SendPassword = (data) => async (dispatch) => {
-  try {
-    dispatch({ type: types.EDIT_DOCTOR_REQUEST });
-    const res = await axios.post(
-      `https://sore-pear-squid-wig.cyclic.app/admin/password`,
-      data
-    );
-    // console.log(res);
-    return res.data;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-//update doctor
-export const forgetPassword = (data) => async (dispatch) => {
-  try {
-    dispatch({ type: types.FORGET_PASSWORD_REQUEST });
-    const res = await axios.post(
-      `https://sore-pear-squid-wig.cyclic.app/admin/forgot`,
-      data
-    );
-    // console.log(res);
-    return res.data;
+    dispatch({ type: types.EDIT_STAFF_SUCCESS, payload: res.data.user });
   } catch (error) {
     console.log(error);
   }

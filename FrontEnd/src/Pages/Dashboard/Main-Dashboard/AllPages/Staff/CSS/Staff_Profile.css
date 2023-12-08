@@ -4,7 +4,7 @@
   width: 40%;
 }
 
-.maindoctorProfile {
+.mainstaffProfile {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
@@ -71,7 +71,7 @@
 }
 
 @media only screen and (max-width: 1024px) {
-  .maindoctorProfile {
+  .mainstaffProfile {
     display: block;
   }
   .firstBox {

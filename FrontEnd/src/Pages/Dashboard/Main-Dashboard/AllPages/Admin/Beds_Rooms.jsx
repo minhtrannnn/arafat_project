@@ -12,14 +12,6 @@ const Beds_Rooms = () => {
 
   const { beds } = useSelector((state) => state.data);
 
-  const DischargePatient = (_id) => {
-    let data = {
-      occupied: "available",
-      _id,
-    };
-    dispatch(dischargePatient(data));
-  };
-
   useEffect(() => {
     dispatch(GetBeds());
   }, [dispatch]);

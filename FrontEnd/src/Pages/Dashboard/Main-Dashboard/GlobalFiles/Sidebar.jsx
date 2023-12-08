@@ -54,7 +54,7 @@ const Sidebar = () => {
 
             {/* ################## ADMIN ################## */}
             {user?.userType === "admin" ? (
-              <Link className="link" activeclassname="active" to={"/addoctor"}>
+              <Link className="link" activeclassname="active" to={"/addstaff"}>
                 <div className="icon">
                   <AiOutlineUserAdd className="mainIcon" />
                 </div>
@@ -66,19 +66,6 @@ const Sidebar = () => {
                 </div>
               </Link>
             ) : null}
-            {/* {user?.userType === "admin" ? (
-              <Link className="link" activeclassname="active" to={"/addnurse"}>
-                <div className="icon">
-                  <GiNurseFemale className="mainIcon" />
-                </div>
-                <div
-                  style={{ display: isOpen ? "block" : "none" }}
-                  className="link_text"
-                >
-                  Add Nurse
-                </div>
-              </Link>
-            ) : null} */}
             {user?.userType === "admin" ? (
               <Link className="link" activeclassname="active" to={"/admin"}>
                 <div className="icon">
@@ -111,12 +98,12 @@ const Sidebar = () => {
             ) : null} */}
             {/* ############################################ */}
 
-            {/* ################## DOCTOR ################## */}
-            {user?.userType === "doctor" ? (
+            {/* ################## STAFF ################### */}
+            {user?.userType === "staff" ? (
               <Link
                 className="link"
                 activeclassname="active"
-                to={"/doctorprofile"}
+                to={"/staffprofile"}
               >
                 <div className="icon">
                   <SlUserFollow className="mainIcon" />
@@ -129,7 +116,7 @@ const Sidebar = () => {
                 </div>
               </Link>
             ) : null}
-            {user?.userType === "doctor" ? (
+            {user?.userType === "staff" ? (
               <Link
                 className="link"
                 activeclassname="active"
@@ -146,7 +133,7 @@ const Sidebar = () => {
                 </div>
               </Link>
             ) : null}
-            {user?.userType === "doctor" ? (
+            {user?.userType === "staff" ? (
               <Link className="link" activeclassname="active" to={"/reports"}>
                 <div className="icon">
                   <TbReportMedical className="mainIcon" />
@@ -159,24 +146,7 @@ const Sidebar = () => {
                 </div>
               </Link>
             ) : null}
-            {/* {user?.userType === "doctor" ? (
-              <Link
-                className="link"
-                activeclassname="active"
-                to={"/checkappointment"}
-              >
-                <div className="icon">
-                  <BsFillBookmarkCheckFill className="mainIcon" />
-                </div>
-                <div
-                  style={{ display: isOpen ? "block" : "none" }}
-                  className="link_text"
-                >
-                  Appointments
-                </div>
-              </Link>
-            ) : null} */}
-            {user?.userType === "doctor" ? (
+            {user?.userType === "staff" ? (
               <Link
                 className="link"
                 activeclassname="active"
@@ -193,24 +163,7 @@ const Sidebar = () => {
                 </div>
               </Link>
             ) : null}
-            {/* {user?.userType === "doctor" ? (
-              <Link
-                className="link"
-                activeclassname="active"
-                to={"/patientdetails"}
-              >
-                <div className="icon">
-                  <TbListDetails className="mainIcon" />
-                </div>
-                <div
-                  style={{ display: isOpen ? "block" : "none" }}
-                  className="link_text"
-                >
-                  Patients
-                </div>
-              </Link>
-            ) : null} */}
-            {user?.userType === "doctor" ? (
+            {user?.userType === "staff" ? (
               <Link className="link" activeclassname="active" to={"/rooms"}>
                 <div className="icon">
                   <MdBedroomChild className="mainIcon" />

@@ -1,66 +1,65 @@
 import React, { useState } from "react";
-import "./CSS/Add_Doctor.css";
-import nurse from "../../../../../img/nurseavatar.png";
-import { message, Upload } from "antd";
-import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
+import "./CSS/Add_Staff.css";
 import { useDispatch, useSelector } from "react-redux";
-import { NurseRegister, SendPassword } from "../../../../../Redux/auth/action";
+import { StaffRegister, SendPassword } from "../../../../../Redux/auth/action";
 import Sidebar from "../../GlobalFiles/Sidebar";
+
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Navigate } from "react-router-dom";
 const notify = (text) => toast(text);
 
-const Add_Nurse = () => {
+const AddStaff = () => {
   const { data } = useSelector((store) => store.auth);
 
   const dispatch = useDispatch();
 
   const [loading, setLoading] = useState(false);
 
-  const InitData = {
-    nurseName: "",
+  const initData = {
+    staffName: "",
+    staffRole:"",
     age: "",
     mobile: "",
     email: "",
+    bloodGroup: "",
     gender: "",
     DOB: "",
     address: "",
     education: "",
     department: "",
-    nurseID: Date.now(),
+    staffID: Date.now(),
     password: "",
     details: "",
-    bloodGroup: "",
   };
-  const [NurseValue, setNurseValue] = useState(InitData);
+  const [StaffValue, setStaffValue] = useState(initData);
 
-  const HandleDoctorChange = (e) => {
-    setNurseValue({ ...NurseValue, [e.target.name]: e.target.value });
+  const HandleStaffChange = (e) => {
+    setStaffValue({ ...StaffValue, [e.target.name]: e.target.value });
   };
 
-  const HandleDoctorSubmit = (e) => {
+  const HandleStaffSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-    dispatch(NurseRegister(NurseValue)).then((res) => {
-      if (res.message === "Nures already exists") {
+    dispatch(StaffRegister(StaffValue)).then((res) => {
+      if (res.message === "Staff already exists") {
         setLoading(false);
-        return notify("Nurse Already Exist");
+        return notify("Staff Already Exist");
       }
       if (res.message === "error") {
         setLoading(false);
         return notify("Something went wrong, Please try Again");
       }
-      notify("Nurse Added");
 
       let data = {
         email: res.data.email,
         password: res.data.password,
-        userId: res.data.nurseID,
+        userId: res.data.staffID,
       };
-      dispatch(SendPassword(data)).then((res) => notify("Account Detais Sent"));
+      console.log(data, "STAFF REGISTER SUCCESSFULLY");
+      dispatch().then((res) => notify("Account Detais Sent"));
       setLoading(false);
-      setNurseValue(InitData);
+      setStaffValue(initData);
     });
   };
 
@@ -78,19 +77,18 @@ const Add_Nurse = () => {
       <div className="container">
         <Sidebar />
         <div className="AfterSideBar">
-          <div className="Main_Add_Doctor_div">
-            <h1>Add Nurse</h1>
-            <img src={nurse} alt="doctor" className="avatarimg" />
-            <form onSubmit={HandleDoctorSubmit}>
+          <div className="Main_Add_Staff_div">
+            <h1>Add Staff</h1>
+            <form onSubmit={HandleStaffSubmit}>
               <div>
-                <label> Name</label>
+                <label>Staff Name</label>
                 <div className="inputdiv">
                   <input
                     type="text"
                     placeholder="Full Name"
-                    name="nurseName"
-                    value={NurseValue.nurseName}
-                    onChange={HandleDoctorChange}
+                    name="staffName"
+                    value={StaffValue.staffName}
+                    onChange={HandleStaffChange}
                     required
                   />
                 </div>
@@ -102,21 +100,21 @@ const Add_Nurse = () => {
                     type="number"
                     placeholder="Age"
                     name="age"
-                    value={NurseValue.age}
-                    onChange={HandleDoctorChange}
+                    value={StaffValue.age}
+                    onChange={HandleStaffChange}
                     required
                   />
                 </div>
               </div>
               <div>
-                <label>Contact Number</label>
+                <label>Emergency Number</label>
                 <div className="inputdiv">
                   <input
                     type="number"
                     placeholder="Emergency Number"
                     name="mobile"
-                    value={NurseValue.mobile}
-                    onChange={HandleDoctorChange}
+                    value={StaffValue.mobile}
+                    onChange={HandleStaffChange}
                     required
                   />
                 </div>
@@ -128,8 +126,8 @@ const Add_Nurse = () => {
                     type="email"
                     placeholder="abc@abc.com"
                     name="email"
-                    value={NurseValue.email}
-                    onChange={HandleDoctorChange}
+                    value={StaffValue.email}
+                    onChange={HandleStaffChange}
                     required
                   />
                 </div>
@@ -139,8 +137,8 @@ const Add_Nurse = () => {
                 <div className="inputdiv">
                   <select
                     name="gender"
-                    value={NurseValue.gender}
-                    onChange={HandleDoctorChange}
+                    value={StaffValue.gender}
+                    onChange={HandleStaffChange}
                     required
                   >
                     <option value="Choose Gender">Choose Gender</option>
@@ -151,52 +149,12 @@ const Add_Nurse = () => {
                 </div>
               </div>
               <div>
-                <label>Birthdate</label>
-                <div className="inputdiv">
-                  <input
-                    type="date"
-                    placeholder="dd-mm-yy"
-                    name="DOB"
-                    value={NurseValue.DOB}
-                    onChange={HandleDoctorChange}
-                    required
-                  />
-                </div>
-              </div>
-              <div>
-                <label>Address</label>
-                <div className="inputdiv adressdiv">
-                  <input
-                    type="text"
-                    placeholder="Address"
-                    name="address"
-                    value={NurseValue.address}
-                    onChange={HandleDoctorChange}
-                    required
-                  />
-                </div>
-              </div>
-              <div>
-                <label>Education</label>
-                <div className="inputdiv">
-                  <input
-                    type="text"
-                    placeholder="eg.MBBS"
-                    name="education"
-                    value={NurseValue.education}
-                    onChange={HandleDoctorChange}
-                    required
-                  />
-                </div>
-              </div>
-
-              <div>
                 <label>Blood Group</label>
                 <div className="inputdiv">
                   <select
                     name="bloodGroup"
-                    value={NurseValue.bloodGroup}
-                    onChange={HandleDoctorChange}
+                    value={StaffValue.bloodGroup}
+                    onChange={HandleStaffChange}
                     required
                   >
                     <option value="Choose Blood Group">Select</option>
@@ -211,6 +169,66 @@ const Add_Nurse = () => {
                   </select>
                 </div>
               </div>
+              <div>
+                <label>Birthdate</label>
+                <div className="inputdiv">
+                  <input
+                    type="date"
+                    placeholder="dd-mm-yy"
+                    name="DOB"
+                    value={StaffValue.DOB}
+                    onChange={HandleStaffChange}
+                    required
+                  />
+                </div>
+              </div>
+              <div>
+                <label>Address</label>
+                <div className="inputdiv adressdiv">
+                  <input
+                    type="text"
+                    placeholder="Address"
+                    name="address"
+                    value={StaffValue.address}
+                    onChange={HandleStaffChange}
+                    required
+                  />
+                </div>
+              </div>
+              <div>
+                <label>Education</label>
+                <div className="inputdiv">
+                  <input
+                    type="text"
+                    placeholder="eg.MBBS"
+                    name="education"
+                    value={StaffValue.education}
+                    onChange={HandleStaffChange}
+                    required
+                  />
+                </div>
+              </div>
+              <div>
+                <label>Department</label>
+                <div className="inputdiv">
+                  <select
+                    name="department"
+                    value={StaffValue.department}
+                    onChange={HandleStaffChange}
+                    required
+                  >
+                    <option value="General">Select</option>
+                    <option value="Cardiology">Cardiology</option>
+                    <option value="Neurology">Neurology</option>
+                    <option value="ENT">ENT</option>
+                    <option value="Ophthalmologist">Ophthalmologist</option>
+                    <option value="Anesthesiologist">Anesthesiologist</option>
+                    <option value="Dermatologist">Dermatologist</option>
+                    <option value="Oncologist">Oncologist</option>
+                    <option value="Psychiatrist">Psychiatrist</option>
+                  </select>
+                </div>
+              </div>
 
               <div>
                 <label>Password</label>
@@ -219,14 +237,14 @@ const Add_Nurse = () => {
                     type="text"
                     placeholder="Password"
                     name="password"
-                    value={NurseValue.password}
-                    onChange={HandleDoctorChange}
+                    value={StaffValue.password}
+                    onChange={HandleStaffChange}
                     required
                   />
                 </div>
               </div>
               <div>
-                <label>Other Info</label>
+                <label>Other Details</label>
                 <div className="inputdiv">
                   <textarea
                     type="text"
@@ -234,8 +252,8 @@ const Add_Nurse = () => {
                     rows="4"
                     cols="50"
                     name="details"
-                    value={NurseValue.details}
-                    onChange={HandleDoctorChange}
+                    value={StaffValue.details}
+                    onChange={HandleStaffChange}
                     required
                   />
                 </div>
@@ -251,4 +269,4 @@ const Add_Nurse = () => {
   );
 };
 
-export default Add_Nurse;
+export default AddStaff;

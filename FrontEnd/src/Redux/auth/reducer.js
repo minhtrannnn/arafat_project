@@ -11,16 +11,14 @@ const initialState = {
 };
 export default function authReducer(state = initialState, { type, payload }) {
   switch (type) {
-    case types.LOGIN_NURSE_REQUEST ||
-      types.LOGIN_ADMIN_REQUEST ||
-      types.LOGIN_DOCTOR_REQUEST:
+    case types.LOGIN_ADMIN_REQUEST ||
+      types.LOGIN_STAFF_REQUEST:
       return {
         ...state,
         userLogin: { loading: true, error: false },
       };
-    case types.LOGIN_NURSE_SUCCESS ||
-      types.LOGIN_ADMIN_SUCCESS ||
-      types.LOGIN_DOCTOR_SUCCESS:
+    case types.LOGIN_ADMIN_SUCCESS ||
+      types.LOGIN_STAFF_SUCCESS:
       localStorage.setItem("token", payload.token);
       return {
         ...state,
@@ -31,19 +29,18 @@ export default function authReducer(state = initialState, { type, payload }) {
           user: payload.user,
         },
       };
-    case types.LOGIN_NURSE_ERROR ||
-      types.LOGIN_ADMIN_ERROR ||
-      types.LOGIN_DOCTOR_ERROR:
+    case types.LOGIN_ADMIN_ERROR ||
+      types.LOGIN_STAFF_ERROR:
       return {
         ...state,
         userLogin: { loading: false, error: true, message: payload.message },
       };
-    case types.LOGIN_DOCTOR_REQUEST:
+    case types.LOGIN_STAFF_REQUEST:
       return {
         ...state,
         userLogin: { loading: true, error: false },
       };
-    case types.LOGIN_DOCTOR_SUCCESS:
+    case types.LOGIN_STAFF_SUCCESS:
       localStorage.setItem("token", payload.token);
       return {
         ...state,
@@ -54,7 +51,7 @@ export default function authReducer(state = initialState, { type, payload }) {
           user: payload.user,
         },
       };
-    case types.LOGIN_DOCTOR_ERROR:
+    case types.LOGIN_STAFF_ERROR:
       return {
         ...state,
         userLogin: { loading: false, error: true, message: payload.message },
@@ -75,14 +72,7 @@ export default function authReducer(state = initialState, { type, payload }) {
           user: payload.user,
         },
       };
-    case types.EDIT_NURSE_SUCCESS:
-      return {
-        ...state,
-        data: {
-          user: payload,
-        },
-      };
-    case types.EDIT_DOCTOR_SUCCESS:
+    case types.EDIT_STAFF_SUCCESS:
       return {
         ...state,
         data: {

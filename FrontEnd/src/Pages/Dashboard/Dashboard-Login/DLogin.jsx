@@ -1,33 +1,15 @@
 import React, { useState } from "react";
 import { Radio } from "antd";
-import banner from "../../../img/banner.png";
-import admin from "../../../img/admin.jpg";
-import "./DLogin.css";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import {
-  AdminLogin,
-  DoctorLogin,
-  forgetPassword,
-  NurseLogin,
-} from "../../../Redux/auth/action";
+import { AdminLogin, StaffLogin } from "../../../Redux/auth/action";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Drawer } from "antd";
+import "./DLogin.css";
+
 const notify = (text) => toast(text);
 
 const DLogin = () => {
-  const [open, setOpen] = useState(false);
-
-  const showDrawer = () => {
-    setOpen(true);
-  };
-
-  const onClose = () => {
-    setOpen(false);
-  };
-
-  // ************************************************
   const [Loading, setLoading] = useState(false);
   const [placement, SetPlacement] = useState("Staff");
   const [formvalue, setFormvalue] = useState({
@@ -47,10 +29,10 @@ const DLogin = () => {
       if (placement === "Staff") {
         let data = {
           ...formvalue,
-          docID: formvalue.ID,
+          staffID: formvalue.ID,
         };
         console.log(data);
-        dispatch(DoctorLogin(data)).then((res) => {
+        dispatch(StaffLogin(data)).then((res) => {
           if (res.message === "Successful") {
             notify("Login Successful");
             setLoading(false);
@@ -99,37 +81,6 @@ const DLogin = () => {
     SetPlacement(e.target.value);
   };
 
-  const [ForgetPassword, setForgetPassword] = useState({
-    type: "",
-    email: "",
-  });
-
-  const HandleForgetPassword = (e) => {
-    setForgetPassword({ ...ForgetPassword, [e.target.name]: e.target.value });
-  };
-
-  const [forgetLoading, setforgetLoading] = useState(false);
-
-  const HandleChangePassword = () => {
-    if (ForgetPassword.type === "") {
-      return notify("Please Fill all Details");
-    }
-    setforgetLoading(true);
-    dispatch(forgetPassword(ForgetPassword)).then((res) => {
-      if (res.message === "User not found") {
-        setforgetLoading(false);
-        return notify("User Not Found");
-      }
-      setForgetPassword({
-        type: "",
-        email: "",
-      });
-      onClose();
-      setforgetLoading(false);
-      return notify("Account Details Send");
-    });
-  };
-
   return (
     <>
       <ToastContainer />
@@ -170,80 +121,6 @@ const DLogin = () => {
                 required
               />
               <button type="submit">{Loading ? "Loading..." : "Submit"}</button>
-              {/* <p style={{ marginTop: "10px" }}>
-                Forget Password?{" "}
-                <span
-                  style={{ color: "blue", cursor: "pointer" }}
-                  onClick={showDrawer}
-                >
-                  Send it to your Email!
-                </span>
-              </p> */}
-
-              {/* ********************************************************* */}
-              <Drawer
-                title="Forget Password"
-                placement="left"
-                onClose={onClose}
-                open={open}
-              >
-                <div>
-                  <label style={{ fontSize: "18px" }}>Choose Type</label>
-
-                  <select
-                    name="type"
-                    value={ForgetPassword.type}
-                    onChange={HandleForgetPassword}
-                    required
-                  >
-                    <option value="">User Type</option>
-                    <option value="nurse">Nurse</option>
-                    <option value="doctor">Doctor</option>
-                    <option value="admin">Admin</option>
-                  </select>
-                </div>
-                <div>
-                  <label style={{ display: "block", fontSize: "18px" }}>
-                    Enter Email
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="example@mail.com"
-                    name="email"
-                    value={ForgetPassword.email}
-                    onChange={HandleForgetPassword}
-                    required
-                    style={{
-                      width: "100%",
-                      height: "3rem",
-                      borderRadius: "5px",
-                      border: "none",
-                      backgroundColor: "#bce0fb",
-                      fontSize: "18px",
-                      marginTop: "10px",
-                      paddingLeft: "10px",
-                    }}
-                  />
-                </div>
-
-                <button
-                  style={{
-                    width: "50%",
-                    margin: " 20px auto",
-                    display: "flex",
-                    padding: "10px",
-                    fontSize: "18px",
-                    backgroundColor: "#ff9f9f",
-                    border: "none",
-                    borderRadius: "7px",
-                    cursor: "pointer",
-                    justifyContent: "center",
-                  }}
-                  onClick={HandleChangePassword}
-                >
-                  {forgetLoading ? "Loading..." : " Send Mail"}
-                </button>
-              </Drawer>
             </form>
           </div>
         </div>

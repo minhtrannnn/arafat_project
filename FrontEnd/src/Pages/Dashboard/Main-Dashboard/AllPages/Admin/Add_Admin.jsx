@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AdminRegister, SendPassword } from "../../../../../Redux/auth/action";
 import Sidebar from "../../GlobalFiles/Sidebar";
-import admin from "../../../../../img/admin.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Navigate } from "react-router-dom";
@@ -27,12 +26,12 @@ const Add_Admin = () => {
   };
   const [AdminValue, setAdminValue] = useState(InitData);
 
-  const HandleDoctorChange = (e) => {
+  const HandleStaffChange = (e) => {
     setAdminValue({ ...AdminValue, [e.target.name]: e.target.value });
   };
   const dispatch = useDispatch();
 
-  const HandleDoctorSubmit = (e) => {
+  const HandleStaffSubmit = (e) => {
     e.preventDefault();
     setloading(true);
     dispatch(AdminRegister(AdminValue)).then((res) => {
@@ -51,7 +50,6 @@ const Add_Admin = () => {
         password: res.data.password,
         userId: res.data.adminID,
       };
-      dispatch(SendPassword(data)).then((res) => notify("Account Detais Sent"));
       setloading(false);
       setAdminValue(InitData);
     });
@@ -71,9 +69,9 @@ const Add_Admin = () => {
       <div className="container">
         <Sidebar />
         <div className="AfterSideBar">
-          <div className="Main_Add_Doctor_div">
+          <div className="Main_Add_Staff_div">
             <h1>Add Admin</h1>
-            <form onSubmit={HandleDoctorSubmit}>
+            <form onSubmit={HandleStaffSubmit}>
               <div>
                 <label>Name</label>
                 <div className="inputdiv">
@@ -82,7 +80,7 @@ const Add_Admin = () => {
                     placeholder="Full Name"
                     name="adminName"
                     value={AdminValue.adminName}
-                    onChange={HandleDoctorChange}
+                    onChange={HandleStaffChange}
                     required
                   />
                 </div>
@@ -95,7 +93,7 @@ const Add_Admin = () => {
                     placeholder="Age"
                     name="age"
                     value={AdminValue.age}
-                    onChange={HandleDoctorChange}
+                    onChange={HandleStaffChange}
                     required
                   />
                 </div>
@@ -108,7 +106,7 @@ const Add_Admin = () => {
                     placeholder="Emergency Number"
                     name="mobile"
                     value={AdminValue.mobile}
-                    onChange={HandleDoctorChange}
+                    onChange={HandleStaffChange}
                     required
                   />
                 </div>
@@ -121,7 +119,7 @@ const Add_Admin = () => {
                     placeholder="abc@abc.com"
                     name="email"
                     value={AdminValue.email}
-                    onChange={HandleDoctorChange}
+                    onChange={HandleStaffChange}
                     required
                   />
                 </div>
@@ -132,7 +130,7 @@ const Add_Admin = () => {
                   <select
                     name="gender"
                     value={AdminValue.gender}
-                    onChange={HandleDoctorChange}
+                    onChange={HandleStaffChange}
                     required
                   >
                     <option value="Choose Gender">Choose Gender</option>
@@ -150,7 +148,7 @@ const Add_Admin = () => {
                     placeholder="dd-mm-yy"
                     name="DOB"
                     value={AdminValue.DOB}
-                    onChange={HandleDoctorChange}
+                    onChange={HandleStaffChange}
                     required
                   />
                 </div>
@@ -163,7 +161,7 @@ const Add_Admin = () => {
                     placeholder="Address"
                     name="address"
                     value={AdminValue.address}
-                    onChange={HandleDoctorChange}
+                    onChange={HandleStaffChange}
                     required
                   />
                 </div>
@@ -176,7 +174,7 @@ const Add_Admin = () => {
                     placeholder="eg.MBBS"
                     name="education"
                     value={AdminValue.education}
-                    onChange={HandleDoctorChange}
+                    onChange={HandleStaffChange}
                     required
                   />
                 </div>
@@ -189,7 +187,7 @@ const Add_Admin = () => {
                     placeholder="Password"
                     name="password"
                     value={AdminValue.password}
-                    onChange={HandleDoctorChange}
+                    onChange={HandleStaffChange}
                     required
                   />
                 </div>

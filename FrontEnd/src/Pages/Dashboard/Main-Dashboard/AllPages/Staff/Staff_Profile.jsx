@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import "../Doctor/CSS/Doctor_Profile.css";
+import React, { useEffect, useState } from "react";
+import "../Staff/CSS/Staff_Profile.css";
 import { BiTime } from "react-icons/bi";
 import { GiMeditation } from "react-icons/gi";
 import { AiFillCalendar, AiFillEdit } from "react-icons/ai";
@@ -11,27 +11,20 @@ import { FaRegHospital, FaMapMarkedAlt, FaBirthdayCake } from "react-icons/fa";
 import Sidebar from "../../GlobalFiles/Sidebar";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, message, Modal } from "antd";
-import { UpdateNurse } from "../../../../../Redux/auth/action";
-import docimg from "../../../../../img/profile.png";
-import "./CSS/Profiles.css";
+import { UpdateStaff} from "../../../../../Redux/auth/action";
+import { GetStaffDetails } from "../../../../../Redux/Datas/action";
+import { Navigate } from "react-router-dom";
+import "./CSS/Staff_Profile.css";
 
-const Nurse_Profile = () => {
-  const {
-    data: { user },
-  } = useSelector((state) => state.auth);
+// *********************************************************
+const Staff_Profile = () => {
+  const { data } = useSelector((store) => store.auth);
 
-  const dispatch = useDispatch();
+  const disptach = useDispatch();
 
-  const [formData, setFormData] = useState({
-    nurseName: user.nurseName,
-    age: user.age,
-    gender: user.gender,
-    bloodGroup: user.bloodGroup,
-    education: user.education,
-    mobile: user.mobile,
-    DOB: user.DOB,
-    ID: user._id,
-  });
+  useEffect(() => {
+    disptach(GetStaffDetails());
+  }, []);
 
   const [open, setOpen] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
@@ -58,43 +51,61 @@ const Nurse_Profile = () => {
     setOpen(false);
   };
 
+  const [formData, setFormData] = useState({
+    staffName: data.user.staffName,
+    age: data.user.age,
+    gender: data.user.gender,
+    bloodGroup: data.user.bloodGroup,
+    education: data.user.education,
+    mobile: data.user.mobile,
+    DOB: data.user.DOB,
+  });
+
   const handleFormChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleFormSubmit = () => {
-    dispatch(UpdateNurse(formData, user._id));
-    success("user updated");
+    disptach(UpdateStaff(formData, data.user._id));
+    success("User Updated");
     handleOk();
   };
 
+  if (data?.isAuthticated === true) {
+    return <Navigate to={"/"} />;
+  }
+
+  if (data?.user.userType !== "staff") {
+    return <Navigate to={"/dashboard"} />;
+  }
+  
   return (
     <>
       {contextHolder}
       <div className="container">
         <Sidebar />
         <div className="AfterSideBar">
-          <div className="maindoctorProfile">
-            <div className="firstBox doctorfirstdiv">
+          <div className="mainstaffProfile">
+            <div className="firstBox">
               <div>
-                <img src={user?.image} alt="docimg" />
+                <img src={'https://i.ytimg.com/vi/SQJrYw1QvSQ/maxresdefault.jpg'} alt="avatar" />
               </div>
-              <hr />
+              <br></br>
               <div className="singleitemdiv">
                 <GiMeditation className="singledivicons" />
-                <p>{user?.nurseName}</p>
+                <p>{data?.user?.staffName}</p>
               </div>
               <div className="singleitemdiv">
                 <MdBloodtype className="singledivicons" />
-                <p>{user?.bloodGroup}</p>
+                <p>{data?.user?.bloodGroup}</p>
               </div>
               <div className="singleitemdiv">
                 <FaBirthdayCake className="singledivicons" />
-                <p>{user?.DOB}</p>
+                <p>{data?.user?.DOB}</p>
               </div>
               <div className="singleitemdiv">
                 <BsFillTelephoneFill className="singledivicons" />
-                <p>{user?.mobile}</p>
+                <p>{data?.user?.mobile}</p>
               </div>
               <div className="singleitemdiv">
                 <button onClick={showModal}>
@@ -121,11 +132,11 @@ const Nurse_Profile = () => {
               >
                 <form className="inputForm">
                   <input
-                    name="nurseName"
-                    value={formData.nurseName}
+                    name="staffName"
+                    value={formData.staffName}
                     onChange={handleFormChange}
                     type="text"
-                    placeholder="Full name"
+                    placeholder="Full Name"
                   />
                   <input
                     name="age"
@@ -179,40 +190,41 @@ const Nurse_Profile = () => {
                 </h2>
                 <div className="singleitemdiv">
                   <BsGenderAmbiguous className="singledivicons" />
-                  <p>{user?.gender}</p>
+                  <p>{data?.user?.gender}</p>
                 </div>
                 <div className="singleitemdiv">
                   <AiFillCalendar className="singledivicons" />
-                  <p>{user?.age}</p>
+                  <p>{data?.user?.age}</p>
                 </div>
 
                 <div className="singleitemdiv">
                   <MdOutlineCastForEducation className="singledivicons" />
-                  <p>{user?.education}</p>
+                  <p>{data?.user?.education}</p>
                 </div>
                 <div className="singleitemdiv">
                   <BsHouseFill className="singledivicons" />
-                  <p>{user?.address}</p>
+                  <p>{data?.user?.address}</p>
                 </div>
               </div>
+              
               {/* ***********  Third Div ******************** */}
               <div className="subSecondBox">
-                <h2 style={{ textAlign: "center", marginTop: "10px" }}>
+                <h2 style={{ textAlign: "center"}}>
                   Hospital Details
                 </h2>
+                <div style={{marginTop: "20px"}}></div>
                 <div className="singleitemdiv">
                   <BiTime className="singledivicons" />
-                  <p>09:00 AM - 20:00 PM (TIMING)</p>
+                  <p>Working Hours: 09:00 AM - 20:00 PM (EST)</p>
                 </div>
                 <div className="singleitemdiv">
                   <FaRegHospital className="singledivicons" />
-                  <p>Apollo hospitals</p>
+                  <p>MC Hospitals</p>
                 </div>
                 <div className="singleitemdiv">
                   <FaMapMarkedAlt className="singledivicons" />
                   <p>
-                    Sri Aurobindo Marg, Ansari Nagar, Ansari Nagar East, New
-                    Delhi.
+                    4513 Manhattan College, Parkway, Bronx, NY, 10471.
                   </p>
                 </div>
               </div>
@@ -224,4 +236,4 @@ const Nurse_Profile = () => {
   );
 };
 
-export default Nurse_Profile;
+export default Staff_Profile;

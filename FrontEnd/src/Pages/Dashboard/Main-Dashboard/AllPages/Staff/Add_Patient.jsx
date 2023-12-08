@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import { message, Upload } from "antd";
-import doctor from "../../../../../img/doctoravatar.png";
+import { message} from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import {
   AddPatients,
-  CreateBeds,
   EditSingleBed,
   GetSingleBed,
 } from "../../../../../Redux/Datas/action";
@@ -17,29 +15,9 @@ import { Navigate } from "react-router-dom";
 const notify = (text) => toast(text);
 
 const Add_Patient = () => {
-  const getBase64 = (img, callback) => {
-    const reader = new FileReader();
-    reader.addEventListener("load", () => callback(reader.result));
-    reader.readAsDataURL(img);
-  };
-
   const [loading, setLoading] = useState(false);
-
   const dispatch = useDispatch();
-
   const { data } = useSelector((store) => store.auth);
-
-  const beforeUpload = (file) => {
-    const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
-    if (!isJpgOrPng) {
-      message.error("You can only upload JPG/PNG file!");
-    }
-    const isLt2M = file.size / 1024 / 1024 < 2;
-    if (!isLt2M) {
-      message.error("Image must smaller than 2MB!");
-    }
-    return isJpgOrPng && isLt2M;
-  };
 
   const initBed = {
     bedNumber: "",
@@ -65,8 +43,8 @@ const Add_Patient = () => {
     bloodGroup: "",
     DOB: "",
     password: "",
-    doctorID: data?.user._id,
-    docID: "",
+    STAFFID: data?.user._id,
+    staffID: "",
     details: "",
   };
   const [AddPatient, setAddPatient] = useState(InitData);
@@ -81,7 +59,7 @@ const Add_Patient = () => {
     if (
       AddPatient.gender === "" ||
       AddPatient.department === "" ||
-      AddPatient.docID === "" ||
+      AddPatient.staffID === "" ||
       AddPatient.bloodGroup === ""
     ) {
       return notify("Please Enter All the Requried Feilds");
@@ -133,32 +111,11 @@ const Add_Patient = () => {
     }
   };
 
-  // const handleChange = (info) => {
-  //   if (info.file.status === "uploading") {
-  //     setLoading(true);
-  //     return;
-  //   }
-  //   if (info.file.status === "done") {
-  //     // Get this url from response in real world.
-  //     getBase64(info.file.originFileObj, (url) => {
-  //       setLoading(false);
-  //       setImageUrl(url);
-  //     });
-  //   }
-  // };
-
-  // const uploadButton = (
-  //   <div>
-  //     {loading ? <LoadingOutlined /> : <PlusOutlined />}
-  //     <div style={{ marginTop: 8 }}>Upload</div>
-  //   </div>
-  // );
-
   if (data?.isAuthticated === true) {
     return <Navigate to={"/"} />;
   }
 
-  if (data?.user.userType !== "doctor") {
+  if (data?.user.userType !== "staff") {
     return <Navigate to={"/dashboard"} />;
   }
 
@@ -168,7 +125,7 @@ const Add_Patient = () => {
       <div className="container">
         <Sidebar />
         <div className="AfterSideBar">
-          <div className="Main_Add_Doctor_div">
+          <div className="Main_Add_Staff_div">
             <h1>Add Patient</h1>
 
             <form onSubmit={HandleOnsubmitAppointment}>
@@ -340,7 +297,7 @@ const Add_Patient = () => {
                 <label>Doctor</label>
                 <div className="inputdiv">
                   <select
-                    name="docID"
+                    name="staffID"
                     value={AddPatient.docID}
                     onChange={HandleAppointment}
                     required
