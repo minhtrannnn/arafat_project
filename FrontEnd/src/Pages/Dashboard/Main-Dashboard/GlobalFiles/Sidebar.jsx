@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import { AiOutlineUserAdd } from "react-icons/ai";
-import { FaAmbulance } from "react-icons/fa";
-import { GiNurseFemale } from "react-icons/gi";
-import { RiSecurePaymentLine } from "react-icons/ri";
 import { SlUserFollow } from "react-icons/sl";
-import { BsBookmarkPlus, BsFillBookmarkCheckFill } from "react-icons/bs";
 import { BiDetail } from "react-icons/bi";
-import { CgProfile } from "react-icons/cg";
 import { FaHospitalUser } from "react-icons/fa";
 import { TbReportMedical } from "react-icons/tb";
 import { MdBedroomChild } from "react-icons/md";
@@ -14,7 +9,6 @@ import { Link } from "react-router-dom";
 import { ImMenu } from "react-icons/im";
 import { FiLogOut } from "react-icons/fi";
 import { RiAdminLine } from "react-icons/ri";
-import { TbBed } from "react-icons/tb";
 import { MdDashboardCustomize } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -58,24 +52,7 @@ const Sidebar = () => {
               </div>
             </Link>
 
-            {user?.userType === "nurse" ? (
-              <Link
-                className="link"
-                activeclassname="active"
-                to={"/nurseprofile"}
-              >
-                <div className="icon">
-                  <CgProfile className="mainIcon" />
-                </div>
-                <div
-                  style={{ display: isOpen ? "block" : "none" }}
-                  className="link_text"
-                >
-                  Profile
-                </div>
-              </Link>
-            ) : null}
-
+            {/* ################## ADMIN ################## */}
             {user?.userType === "admin" ? (
               <Link className="link" activeclassname="active" to={"/addoctor"}>
                 <div className="icon">
@@ -119,7 +96,7 @@ const Sidebar = () => {
               </Link>
             ) : null}
 
-            {user?.userType === "admin" ? (
+            {/* {user?.userType === "admin" ? (
               <Link className="link" activeclassname="active" to={"/addbeds"}>
                 <div className="icon">
                   <TbBed className="mainIcon" />
@@ -131,8 +108,10 @@ const Sidebar = () => {
                   Add Beds
                 </div>
               </Link>
-            ) : null}
+            ) : null} */}
+            {/* ############################################ */}
 
+            {/* ################## DOCTOR ################## */}
             {user?.userType === "doctor" ? (
               <Link
                 className="link"
@@ -218,23 +197,6 @@ const Sidebar = () => {
               <Link
                 className="link"
                 activeclassname="active"
-                to={"/checkpayment"}
-              >
-                <div className="icon">
-                  <RiSecurePaymentLine className="mainIcon" />
-                </div>
-                <div
-                  style={{ display: isOpen ? "block" : "none" }}
-                  className="link_text"
-                >
-                  Billing and Checkout
-                </div>
-              </Link>
-            ) : null} */}
-            {/* {user?.userType === "doctor" ? (
-              <Link
-                className="link"
-                activeclassname="active"
                 to={"/patientdetails"}
               >
                 <div className="icon">
@@ -261,6 +223,7 @@ const Sidebar = () => {
                 </div>
               </Link>
             ) : null}
+            {/* ############################################ */}
 
             <Link
               className="LogOutPath link"

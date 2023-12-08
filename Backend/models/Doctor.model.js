@@ -15,6 +15,10 @@ const doctorSchema = mongoose.Schema({
     type: String,
   },
 
+  role: {
+    type: String,
+  },
+
   mobile: {
     type: Number,
   },
