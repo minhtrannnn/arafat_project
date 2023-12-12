@@ -31,7 +31,7 @@ const Sidebar = () => {
         <div style={{ width: isOpen ? "200px" : "70px" }} className={`sidebar`}>
           <div className="top_section">
             <h1 style={{ display: isOpen ? "block" : "none" }} className="logo">
-              MC Hospital Management System
+              Hospital
             </h1>
             <div
               style={{ marginLeft: isOpen ? "50px" : "0px" }}

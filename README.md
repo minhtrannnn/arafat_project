@@ -1,17 +1,12 @@
-# MC Hospital Management System
+# Hospital Management System
 
-This a demo hospital management website project by Minh An and Hieu Lam, where we can perform some of the basic function of a hospital management system like patient registration, user profile, inventory management, create report,...
-
-# Team Members 
-
-- [@Minh An](https://github.com/minhtrannnn)
-- [@Hieu Lam](https://github.com/DaSonGo)
+This a demo hospital management website project by Anh An, where we can perform some of the basic function of a hospital management system like patient registration, user profile, inventory management, create report,...
 
 # Running the Project Locally
 
 Install dependencies
 
-Open the folder Arafat_Project
+Open the folder 
 
 Open VS Code terminal
 
@@ -47,9 +42,9 @@ FRONTEND
 
 # Initial Credentials (Both Staff and Admin)
 
-ID - 20020106
+ID - 20051112
 
-Password - minhan
+Password - an
 
 # Database Back Up
 
@@ -71,13 +66,7 @@ Open System Properties
 
 => "For future develope we are going to set up a automate backup procedure to avoid the inconvinience in backing up data manually"
 
-# Function and Data
-https://sore-pear-squid-wig.cyclic.app/admin
-https://sore-pear-squid-wig.cyclic.app/meds
-https://sore-pear-squid-wig.cyclic.app/staffs
-https://sore-pear-squid-wig.cyclic.app/patients
-https://sore-pear-squid-wig.cyclic.app/reports
-
+# Function 
 - Patient Overview Dashboard (Display all patients)
 
 - Staff Profile (Display staff basic profile)

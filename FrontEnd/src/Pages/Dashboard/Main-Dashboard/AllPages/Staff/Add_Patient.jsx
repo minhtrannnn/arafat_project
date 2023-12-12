@@ -240,13 +240,13 @@ const Add_Patient = () => {
                 <div className="inputdiv">
                   <select
                     name="staffID"
-                    value={AddPatient.docID}
+                    value={AddPatient.staffID}
                     onChange={HandleAppointment}
                     required
                   >
                     <option value="">Select doctor</option>
-                    <option value="63d3d42b03f51b5bd7d4e5cd">
-                      Minh An
+                    <option value="63d22596fe66e89c9be342f5">
+                      Anh An
                     </option>
                   </select>
                 </div>

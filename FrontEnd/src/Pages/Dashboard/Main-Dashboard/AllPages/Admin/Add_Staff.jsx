@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./CSS/Add_Staff.css";
 import { useDispatch, useSelector } from "react-redux";
-import { StaffRegister, SendPassword } from "../../../../../Redux/auth/action";
+import { StaffRegister } from "../../../../../Redux/auth/action";
 import Sidebar from "../../GlobalFiles/Sidebar";
 
 import { ToastContainer, toast } from "react-toastify";

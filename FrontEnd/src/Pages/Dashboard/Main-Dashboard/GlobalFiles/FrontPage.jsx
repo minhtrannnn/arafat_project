@@ -33,7 +33,7 @@ const FrontPage = () => {
     <div className="container">
       <Sidebar />
       <div className="AfterSideBar">
-        <h1 style={{ color: "rgb(220,20,60)", fontSize: "50px" }}>MC Hospital</h1>
+        <h1 style={{ color: "rgb(220,20,60)", fontSize: "50px" }}>Hospital</h1>
         <div className="patientDetails">
           <h1>Patient Dashboard</h1>
           <div className="patientBox">

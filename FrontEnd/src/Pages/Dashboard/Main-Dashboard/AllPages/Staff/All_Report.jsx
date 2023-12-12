@@ -44,7 +44,7 @@ const AllReport = () => {
                     return (
                       <tr>
                         <td>{ele.patientName}</td>
-                        <td>Minh An</td>
+                        <td>Anh An</td>
                         <td>{ele.docDepartment}</td>
                         <td>{ele.patientMobile}</td>
                         <td>{ele.patientAge}</td>

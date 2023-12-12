@@ -224,7 +224,7 @@ const Staff_Profile = () => {
                 <div className="singleitemdiv">
                   <FaMapMarkedAlt className="singledivicons" />
                   <p>
-                    4513 Manhattan College, Parkway, Bronx, NY, 10471.
+                    Purdue University
                   </p>
                 </div>
               </div>
